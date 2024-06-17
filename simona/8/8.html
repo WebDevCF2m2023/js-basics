@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <h1>Formulaire d'inscription</h1>
+        <form action="" method="get" name="formulaire">
+           <fieldset>
+           
+            <label for="nom">Nom utilisateur </label>
+            <input type="text" placeholder="votre nom" name="nom" id="nom" required>
+            <label for="motdepasse">Mot de passe:</label>
+            <input type="password" placeholder="votre mot de passe" name="motdepasse" id="motdepasse" required>
+          </fieldset>
+          <h2>10 caractères minimum  </h2>
+    
+    
+          
+          <input type="submit" value="S'inscrire">
+    
+       
+        </form>
+     
+    <script>
+        window.onload = function() {
+    function checkPassword() {
+     var password = document.getElementById('motdepasse').value;
+
+     var lengthCheck = password.length >= 10;
+     
+    }
+    function checkNom() {
+     var nom = document.getElementById('nom').value;
+
+     var lengthCheck = nom.length >= 10;
+     
+    }
+
+  
+  document.getElementById("formulaire").onsubmit = function(event) {
+    event.preventDefault(); 
+    
+    if (nom.send() === "" || motdepasse.send() === "") {
+      alert("Toutes les champs doit etre remplis!");
+      return false;
+    }
+
+   
+    alert("Le formulaire vais etre envoyé!");
+    return true;
+  };
+};
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schimbă culoarea div</title>
+    <style>
+    .color-box {
+    width: 200px;
+    height: 200px;
+    background-color: lightgrey;
+    margin: 20px auto;
+    border: 1px solid #000;
+}
+    </style>
+</head>
+<body>
+    <div id="colorDiv" class="color-box"></div>
+    <button id="colorButton">Change culeur</button>
+
+    <script>
+    document.getElementById('colorButton').addEventListener('click', function() {
+    const randomColor = generateRandomColor();
+    document.getElementById('colorDiv').style.backgroundColor = randomColor;
+});
+
+function generateRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+    </script>
+</body>
+</html>
