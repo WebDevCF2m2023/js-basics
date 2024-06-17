@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClassName Example</title>
+<style>
+  .highlight {
+    background-color: yellow;
+  }
+</style>
+</head>
+<body>
+<div class="highlight">This is a div</div>
+<button id="btn">Change Color</button>
+
+
+<script>
+    // Sélectionnez le bouton
+const btn = document.getElementById('btn');
+
+// Ajoutez un gestionnaire d'événements au clic sur le bouton
+btn.addEventListener('click', function() {
+  // Sélectionnez le corps du document
+  const div = document.div;
+  
+  // Vérifiez si le corps a déjà la classe 'highlight'
+  if (div.className.includes('highlight')) {
+    // Si oui, retirez-la
+    div.className = div.className.replace('highlight', '');
+  } else {
+    // Sinon, ajoutez-la
+    div.className += ' highlight';
+  }
+});
+
+</script>
+</body>
+</html>
