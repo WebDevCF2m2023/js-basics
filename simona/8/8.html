@@ -1,60 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulaire d'inscription</title>
 </head>
 <body>
-   
-        <h1>Formulaire d'inscription</h1>
-        <form action="" method="get" name="formulaire">
-           <fieldset>
-           
-            <label for="nom">Nom utilisateur </label>
-            <input type="text" placeholder="votre nom" name="nom" id="nom" required>
+    <h1>Formulaire d'inscription</h1>
+    <form action="" method="get" id="formulaire">
+        <fieldset>
+            <label for="nom">Nom utilisateur</label>
+            <input type="text" placeholder="Votre nom" name="nom" id="nom" required>
+            
             <label for="motdepasse">Mot de passe:</label>
-            <input type="password" placeholder="votre mot de passe" name="motdepasse" id="motdepasse" required>
-          </fieldset>
-          <h2>10 caractères minimum  </h2>
-    
-    
-          
-          <input type="submit" value="S'inscrire">
-    
-       
-        </form>
-     
+            <input type="password" placeholder="Votre mot de passe" name="motdepasse" id="motdepasse" required>
+        </fieldset>
+
+        <input type="submit" value="S'inscrire">
+    </form>
+
     <script>
         window.onload = function() {
-    function checkPassword() {
-     var password = document.getElementById('motdepasse').value;
+            document.getElementById("formulaire").onsubmit = function(event) {
+                event.preventDefault();
+                
+                var nom = document.getElementById('nom').value;
+                var motdepasse = document.getElementById('motdepasse').value;
 
-     var lengthCheck = password.length >= 10;
-     
-    }
-    function checkNom() {
-     var nom = document.getElementById('nom').value;
+                if (nom === "" || motdepasse === "") {
+                    alert("Tous les champs doivent être remplis!");
+                    return false;
+                }
 
-     var lengthCheck = nom.length >= 10;
-     
-    }
+                if (motdepasse.length < 10) {
+                    alert("Le mot de passe doit contenir au moins 10 caractères!");
+                    return false;
+                }
 
-  
-  document.getElementById("formulaire").onsubmit = function(event) {
-    event.preventDefault(); 
-    
-    if (nom.send() === "" || motdepasse.send() === "") {
-      alert("Toutes les champs doit etre remplis!");
-      return false;
-    }
+               
+                var uppercaseCheck = /[A-Z]/.test(motdepasse);
+                var numberCheck = /\d/.test(motdepasse);
+                var symbolCheck = /[!@#$%^&*(),.?":{}|<>]/.test(motdepasse);
 
-   
-    alert("Le formulaire vais etre envoyé!");
-    return true;
-  };
-};
+                if (!uppercaseCheck || !numberCheck || !symbolCheck) {
+                    alert("Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et un caractère spécial !");
+                    return false;
+                }
 
+                alert("Le formulaire va être envoyé !");
+                
+                return true;
+            };
+        };
     </script>
 </body>
 </html>
