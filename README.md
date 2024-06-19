@@ -1,19 +1,17 @@
 # Revision JS || Introduction à TS 
 
 L'objectif de ce cours est de faire une révision globale des concepts que vous avez vu depuis le début de formation. 
-On se concentrera ici sur le Javascript ( ou [Typescript](https://www.typescriptlang.org/) pour ceux qui trouvent ça trop facile) **Mais** les exercices feront appels à des notions de HTML également.   
+On se concentrera ici sur le Javascript ( ou [Typescript](https://www.typescriptlang.org/) pour ceux qui trouvent ça trop facile) **Mais** les exercices feront appels à des notions de HTML/CSS. 
 
 # Exercices de révisions JS :
 
-- Ouvrir git bash et cloner **le repo**
+- Faire un fork de ce repo ( le mettre en public );
   
 - Ouvrir le dossier;
   
-- Créer sa propre branche :
-  
-  `git checkout -b [VotrePrénom]`;
+- Créer le dossier `Exercices`;
 
-- Naviguer vers le dossier du groupe (1 ou 2), **Dans** le dossier `Exercices`;
+- Créer le dossier `Classe1` ou `Classe2`  
   
 - Créer un dossier à son nom;
   
