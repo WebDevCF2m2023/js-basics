@@ -124,6 +124,7 @@ Deux petites pages de documentation à lire, l'exercice est un petit peu plus co
 ### 13/ Créer une page `html` avec un script qui choisi un nombre entre 1 & 100, puis demande à l'utilisateur de choisir un nombre.
 
 - Le script répond "plus grand" ou "plus petit" en fonction, ou le félicite si le nombre est correct, tout en affichant son nombre d'essais.
+- Proposer un bouton reset.
 
 ### 14/ Utiliser une API pour afficher des informations sur une page `html` et faire le layout avec [TailwindCSS](https://tailwindcss.com/)
 
