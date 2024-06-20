@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H1</title>
+   
+</head>
+<body>
+    
+
+<p id="text"></p>
+
+<script>
+const time = new Date();
+document.getElementById("text").innerHTML = time;
+</script>
+
+<h1>Inserez votre âge ici en bas</h1>
+<h1 id="text2"></h1>
+<input id="input" type="text">
+<button onclick="changeH1()">valide</button>
+<script>
+    function changeH1(){
+        var age = document.getElementById("input").value;
+        var h1 = document.getElementById("text2");
+        var ageMaj= 18;
+        let majeur = "T'es majeur";
+        let mineur = "T'es mineur";
+        if(age < ageMaj ){
+            h1.innerHTML = mineur;
+        }else{
+            h1.innerHTML = majeur;
+        }
+    }
+</script>
+    
+</body>
+</html>
