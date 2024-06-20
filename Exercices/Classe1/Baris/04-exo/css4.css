@@ -1,0 +1,49 @@
+#exercises .slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 512px;
+    margin: 32px auto;
+    padding: 12px 0;
+    border: 1px solid #ededed;
+ 
+}
+ 
+#exercises .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+ 
+#exercises .slide {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    transition: transform .8s ease-in-out;
+    transform: scale(.6);
+}
+ 
+#exercises .slide:first-child {
+    transform: scale(1);
+}
+ 
+#exercises #prev,
+#exercises #next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+}
+ 
+#exercises #prev {
+    left: 10px;
+}
+ 
+#exercises #next {
+    right: 10px;
+}
+ 
+#exercises #info {
+    text-align: center;
+}

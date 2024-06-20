@@ -1,0 +1,14 @@
+const consoles = [
+    "PlayStation",
+    "Xbox",
+    "Nintendo Switch",
+    "Sega Genesis",
+    "Atari 2600",
+    "Super Nintendo",
+    "Game Boy",
+    "PlayStation 5",
+    "Xbox Series X",
+    "Nintendo 64",
+    "Sega Dreamcast",
+    "PlayStation 2"
+];
