@@ -1,0 +1,14 @@
+for (i = 0; i <= 10; i++) {
+  console.log(i);
+}
+
+
+while (i = 10;  i =>10;) {
+    console.log(i);
+
+}
+
+switch( i=10;  i =>10;){
+
+    console.log(i);
+}
