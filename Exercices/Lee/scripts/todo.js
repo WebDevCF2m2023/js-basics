@@ -1,8 +1,10 @@
 const   listContainer = document.getElementById("listContainer"),
         noListMessage = document.getElementById("noListMessage"),
-        addNewButton  = document.getElementById("addNewButton");
+        addNewButton  = document.getElementById("addNewButton"),
+        addNewText    = document.getElementById("addNewText");
 
-        //récuperation de totale items sur la liste et crétion d'un array pour les stocké
+    addNewButton.addEventListener("click", addListItem);
+    //récuperation de totale items sur la liste et crétion d'un array pour les stocké
 let listCount = localStorage.getItem("listCount"),
     listArray = [];
 
@@ -30,4 +32,13 @@ function createList(list){
         });
         //et finalement, ajoute UL dans le div préparé pour l'affichage
     listContainer.appendChild(UL);
+}
+
+function addListItem() {
+    let newList = addNewText.value;
+    listCount++;
+    localStorage.setItem("listCount", listCount);
+    localStorage.setItem("listItem"+listCount, newList);
+    window.location.reload();
+    
 }
