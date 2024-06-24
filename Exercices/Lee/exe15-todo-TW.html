@@ -1,58 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <link rel="stylesheet" href="styles/colours.css">
-    <meta charset="UTF-8">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do</title>
-</head>
-<body>
-    <div class="container-fluid my-5 d-flex flex-column align-items-center">
-        <p class="h1 mb-5">To-Do List</p>
-        <p class="h3" id="noListMessage"></p>
-        <div id="listContainer"></div>
-        <form>
-            <input type="text" id="addNewText">
-            <button class="bg-yellow-200 hover:bg-green-500" id="addNewButton">Ajoute un Item</button>
-        </form>
-        
-        <div class="flex flex-col bg-transparent w-auto">
-            
-              <div class="flex items-center w-full py-1 pl-4 pr-1 justify-center">Item One
-           
-                  <button class="deleteButton relative h-10 w-10 ms-8" type="button">
-
-                  </button>
-          
-              </div> 
-
-        </div>
-        <div class="flex flex-col bg-transparent w-auto">
-            
-            <div class="flex items-center w-full py-1 pl-4 pr-1 justify-center">Item Two
-         
-                <button class="deleteButton relative h-10 w-10 ms-8" type="button">
-
-                </button>
-        
-            </div> 
-
-      </div>
-      <div class="flex flex-col bg-transparent w-auto">
-            
-        <div class="flex items-center w-full py-1 pl-4 pr-1 justify-center">Item Three
-     
-            <button class="deleteButton relative h-10 w-10 ms-8" type="button">
-
-            </button>
-    
-        </div> 
-
-  </div>
-        
-    </div>
-
-    <script src="scripts/todo-TW.js"></script>
-</body>
+    <head>
+        <link rel="stylesheet" href="styles/colours.css">
+        <meta charset="UTF-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do</title>
+    </head>
+        <body>
+            <div>
+                <p class="h1 mb-5">To-Do List</p>
+                <p class="h3" id="noListMessage"></p>
+                <div id="listContainer"></div>       
+            </div>
+            <script src="scripts/todo-TW.js"></script>
+        </body>
 </html>
+
