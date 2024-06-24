@@ -1,0 +1,379 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emrah 1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function afficheBlague() {
+        let blague = "toto blala ";
+        alert(blague);
+    }
+    window.onload = afficheBlague;
+</script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emrah 2</title>
+    
+</head>
+<body>
+    <h1 id="message"></h1>
+    <p id="date"></p>
+
+    <script>
+        function afficherMessage() {
+            let h1 = document.getElementById('message');
+            let now = new Date();
+            let heures = now.getHours();
+            let message;
+
+            if (heures < 12) {
+                message = "Bonjour";
+            } else if (heures < 18) {
+                message = "Bon après-midi";
+            } else {
+                message = "Bonsoir";
+            }
+
+            h1.textContent = message;
+
+            const jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+            const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+            
+            const jourSemaine = jours[now.getDay()];
+            const jourMois = now.getDate();
+            const moisAnnee = mois[now.getMonth()];
+            const annee = now.getFullYear();
+            const heuresAffichage = now.getHours();
+            const minutesAffichage = now.getMinutes().toString().padStart(2, '0');
+            
+            const dateElement = document.getElementById('date');
+            dateElement.textContent = `${jourSemaine}, ${jourMois} ${moisAnnee} ${annee}, ${heuresAffichage}:${minutesAffichage}`;
+        }
+
+        window.onload = afficherMessage;
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="a">Clique</button>
+    <div id="b"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let button = document.getElementById("a");
+            let output = document.getElementById("b");
+            let tableau = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            button.addEventListener("click", function() {
+                output.innerHTML = '';  
+
+                if (tableau.length >= 8) {
+                    let huitiemeElement = tableau[7];
+                    output.innerHTML += `8eme element: ${huitiemeElement}<br>`;
+                } else {
+                    output.innerHTML += "fin.<br>";
+                }
+
+                
+                if (tableau.length > 1) {
+                    let nouveauTableau = tableau.slice(1, -1);
+                    output.innerHTML += `tableau: [${nouveauTableau.join(", ")}]<br>`;
+                } else {
+                    output.innerHTML += "fin.<br>";
+                }
+
+            
+                output.innerHTML += "place element:<br>";
+                tableau.forEach((element, index) => {
+                    output.innerHTML += `Élément ${index + 1}: ${element}<br>`;
+                });
+
+                tableau = tableau.slice(1, -1);
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification de Contenu</title>
+</head>
+<body>
+    <div id="target"></div>
+    <p class="target"></p>
+
+    <section class="material">
+        <p class="target"></p>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        
+            let elementById = document.getElementById("target");
+            if (elementById) {
+                elementById.textContent = "owned";
+            }
+
+            let elementByClass = document.querySelector("p.target");
+            if (elementByClass) {
+                elementByClass.textContent = "owned";
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel d'Images</title>
+    <style>
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <img src="https://via.placeholder.com/300x200?text=Image+1" class="active">
+        <img src="https://via.placeholder.com/300x200?text=Image+2">
+        <img src="https://via.placeholder.com/300x200?text=Image+3">
+        <div class="carousel-controls">
+            <button id="prevBtn">◀</button>
+            <button id="nextBtn">▶</button>
+        </div>
+    </div>
+    <button id="stopBtn">Arrêter le défilement</button>
+    <button id="startBtn">Démarrer le défilement</button>
+    <div id="colorDiv"></div>
+    <button id="colorChangeBtn">Changer la couleur</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let images = document.querySelectorAll('.carousel img');
+            let currentIndex = 0;
+            let interval;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
+
+            function startCarousel() {
+                interval = setInterval(nextImage, 2000);
+            }
+
+            function stopCarousel() {
+                clearInterval(interval);
+            }
+
+            document.getElementById('nextBtn').addEventListener('click', nextImage);
+            document.getElementById('prevBtn').addEventListener('click', prevImage);
+            document.getElementById('stopBtn').addEventListener('click', stopCarousel);
+            document.getElementById('startBtn').addEventListener('click', startCarousel);
+
+            startCarousel();
+
+            let colorDiv = document.getElementById('colorDiv');
+            document.getElementById('colorChangeBtn').addEventListener('click', function() {
+                let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                colorDiv.style.backgroundColor = randomColor;
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changer la Couleur</title>
+    <style>
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDiv"></div>
+    <button id="colorChangeBtn">Changer la couleur</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let colorDiv = document.getElementById('colorDiv');
+            let colorChangeBtn = document.getElementById('colorChangeBtn');
+
+            function getRandomColor() {
+                let letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            colorChangeBtn.addEventListener('click', function() {
+                let randomColor = getRandomColor();
+                colorDiv.style.backgroundColor = randomColor;
+            });
+        });
+    </script>
+</body>
+</html>
+
+ -->
+
+
+
+ <!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changer le Titre</title>
+    <style>
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">hello</h1>
+    <div id="colorDiv"></div>
+    <button id="colorChangeBtn">Changer titre</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let title = document.getElementById('title');
+            let colorChangeBtn = document.getElementById('colorChangeBtn');
+
+            colorChangeBtn.addEventListener('click', function() {
+                title.textContent = "bye bye bang bang";
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Création de Compte</title>
+</head>
+<body>
+    <h2>Création de Compte</h2>
+    <form id="signupForm">
+        <label for="username">Nom d'utilisateur:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Mot de passe:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Créer le compte</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let form = document.getElementById('signupForm');
+
+            form.addEventListener('submit', function(event) {
+                let passwordInput = document.getElementById('password');
+                let password = passwordInput.value.trim();
+
+                if (password.length <= 10) {
+                    alert("Le mot de passe doit faire plus de 10 caractères.");
+                    event.preventDefault(); // Empêche l'envoi du formulaire si le mot de passe est trop court
+                }
+            });
+        });
+    </script>
+</body>
+</html> -->

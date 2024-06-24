@@ -1,3 +1,32 @@
-<section class="material">
-    <p class="target">Bonne chance !</p>
-</section>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification de Contenu</title>
+</head>
+<body>
+    <div id="target"></div>
+    <p class="target"></p>
+
+    <section class="material">
+        <p class="target"></p>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        
+            let elementById = document.getElementById("target");
+            if (elementById) {
+                elementById.textContent = "owned";
+            }
+
+            let elementByClass = document.querySelector("p.target");
+            if (elementByClass) {
+                elementByClass.textContent = "owned";
+            }
+        });
+    </script>
+</body>
+</html>
