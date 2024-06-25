@@ -23,7 +23,7 @@ function createList(list){
     const UL = document.createElement("ul");
 let i = 0;
     list.forEach(function(item){
-        i++;
+        i++; 
         if (item != null) {
         // pour chaque listItem, créé un LI
             let LI = document.createElement("li");
