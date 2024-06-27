@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1200px;
+    margin: auto;
+}
+
+body{
+    background-color: #0f0f0f;
+    color: white;
+}
+
+h1{
+    margin: 20px;
+    text-align: center;
+}
+
+
+label{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+input[name=task]{
+    width: 400px;
+    padding: 5px 0 5px 5px;
+    font-size: 1.25rem;
+}
+
+input[type=submit]{
+    width: 200px;
+    background-color: #0d6efd;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color .25s;
+}
+
+input[type=submit]:hover{
+    background-color: #005be4;
+}
+
+#tasks{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#tasks .task:first-child{
+    margin-top: 0;
+}
+
+#tasks .task:last-child{
+    margin-bottom: 0;
+}
+
+#error-task p{
+    padding: 1rem;
+    padding-left: 0;
+    color: red;
+}
+
+.task{
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+
+.task p{
+    flex-basis: 80%;
+    line-height: 25px;
+}
+.task button{
+    cursor: pointer;
+    padding: 5px;
+    flex-basis: 10%;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color .25s;
+}
+
+.btn-finish{
+    background-color: #198754;
+}
+
+.btn-finish:hover{
+    background-color: #0cb164;
+}
+
+.btn-delete{
+    background-color: #dc3545;
+}
+
+.btn-delete:hover{
+    background-color: #e45261;
+}
+
+@media screen and (width < 1230px){
+    .container{
+        width: 90%;
+    }
+}
+
+@media screen and (width < 440px){
+    input[name=task]{
+        width: 100%;
+    }
+}

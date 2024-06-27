@@ -1,0 +1,1 @@
+document.querySelector('button').addEventListener('click', () => document.querySelector('div').style.backgroundColor = "red");
