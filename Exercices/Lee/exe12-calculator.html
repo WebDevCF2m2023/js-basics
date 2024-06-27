@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/colours.css">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+<div class="bg-white p-8 rounded-lg shadow-xl border-2 border-gray-500">
+    <h1 class="text-3xl font-bold text-center mb-4">Calculatrice</h1>
+
+    <input type="text"
+           id="calcWindow"
+           class="w-full bg-gray-200 text-right p-4 mb-4 border border-gray-300 rounded-md focus:outline-none"
+           placeholder="0"
+           readonly>
+
+    <div class="grid grid-cols-4 gap-2">
+        <button onclick="clearResult()">C</button>
+        <button onclick="appendCharacter('(')">(</button>
+        <button onclick="appendCharacter(')')">)</button>
+        <button onclick="appendCharacter('/')">/</button>
+        <button onclick="appendCharacter('7')">7</button>
+        <button onclick="appendCharacter('8')">8</button>
+        <button onclick="appendCharacter('9')">9</button>
+        <button onclick="appendCharacter('*')">*</button>
+        <button onclick="appendCharacter('4')">4</button>
+        <button onclick="appendCharacter('5')">5</button>
+        <button onclick="appendCharacter('6')">6</button>
+        <button onclick="appendCharacter('-')">-</button>
+        <button onclick="appendCharacter('1')">1</button>
+        <button onclick="appendCharacter('2')">2</button>
+        <button onclick="appendCharacter('3')">3</button>
+        <button onclick="appendCharacter('+')">+</button>
+        <button onclick="appendCharacter('0')">0</button>
+        <button onclick="appendCharacter('.')">.</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="appendCharacter('%')">%</button>
+    </div>
+</div>
+
+<script src="scripts/calculator.js"></script>
+</body>
+
+</html>
