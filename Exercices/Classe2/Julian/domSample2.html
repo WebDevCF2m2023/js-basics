@@ -11,4 +11,25 @@
     document.querySelectorAll('.target').forEach(function (element) {
         element.innerHTML = 'owned';
     });
+
+
+    document.querySelectorAll('.target')[2].innerHTML = 'owned2';
+</script>
+
+<br>
+<hr>
+<br>
+
+<section class="material2">
+    <p>Text1</p>
+    <p>Text2</p>
+    <p>Text3</p>
+    <p>Text4</p>
+    <p>Text5</p>
+</section>
+
+<script>
+
+    let middleP = document.querySelector("Section.material2 p:nth-child(3)");
+    middleP.innerHTML = "owned";
 </script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation du Dom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- Creer un formulaire pour choisir un nom d'utilisateur et un mot de passe, avant d'envoyer le formulaire vous devez verifiez que le mot de passe chosi fait plus de 10 caracters ( grace a js) -->
+
+
+
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <form action="" class="w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h1 class="block text-gray-700 text-lg font-bold mb-2">Formulaire</h1>
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                <input type="text" name="username" id="username" required
+                    class="border-2 border-blue-500 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus focus:ring-2 focus:ring-red-500 focus:border-transparent">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <input type="password" name="password" id="password" required
+                    class="border-2 border-blue-500 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus focus:ring-2 focus:ring-red-500 focus:border-transparent">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+            </div>
+            <p id="error-message" style="display: none;"></p>
+        </form>
+    </div>
+
+
+
+    <script>
+
+
+        /* 
+        let form = document.querySelector("form");
+        let password = document.querySelector("#password");
+        let error = document.querySelector("#error-message");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            error.style.display = "block";
+
+            error.classList.remove("text-red-500", "text-green-500");
+
+            if (password.value.length < 10) {
+                error.classList.add("text-red-500", "text-xl");
+                error.innerHTML = "Password must be at least 10 characters long";
+            } else {
+                error.classList.add("text-green-500", "text-xl");
+                error.innerHTML = "Form submitted";
+            }
+        }); 
+        */
+
+
+        const passworde = document.querySelector('input[type="password"]');
+        const button = document.querySelector('button');
+        const errormess = document.querySelector('#error-message');
+
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (passworde.value.length < 10) {
+                errormess.style.display = 'block';
+                errormess.innerHTML = 'Password must be at least 10 characters long';
+            } else {
+                errormess.style.display = 'block';
+                errormess.innerHTML = 'Form submitted';
+                
+            }
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>

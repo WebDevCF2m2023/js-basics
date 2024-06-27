@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation du Dom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- Créer un caroussel d'images (au choix) , qui défilent automatiquement, prévoir des boutons pour arrêter le processus de défilement automatique, et des flèches pour passer d'une image à l'autre, vers l'avant ou vers l'arrière. -->
+
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <div class="relative w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h1 class="block text-gray-700 text-lg font-bold mb-2">Carousel</h1>
+            <div class="flex items-center justify-between">
+                <button id="prev"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Prev</button>
+                <button id="next"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Next</button>
+            </div>
+            <div class="flex items-center justify-center">
+                <img src="https://via.placeholder.com/150" alt="placeholder" id="image" class="w-1/2" />
+            </div>
+            <div class="flex items-center justify-center">
+                <button id="start"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Start</button>
+                <button id="stop"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Stop</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        const images = [
+            "./assets/yahoo.jpg",
+            "./assets/cool.png",
+            "./assets/idk.png",
+            "./assets/warning.png",
+
+        ];
+        let currentIndex = 0;
+
+        function updateImage() {
+            document.getElementById('image').src = images[currentIndex];
+        }
+
+        document.getElementById('next').addEventListener('click', function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        });
+
+        document.getElementById('prev').addEventListener('click', function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        });
+
+        let intervalId = null;
+        document.getElementById('start').addEventListener('click', function () {
+            if (intervalId === null) {
+                intervalId = setInterval(function () {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateImage();
+                    console.log(images[currentIndex]);
+                }, 2000);
+            }
+        });
+
+        document.getElementById('start').click();
+
+        document.getElementById('stop').addEventListener('click', function () {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        });
+
+        updateImage();
+    </script>
+</body>
+
+</html>
