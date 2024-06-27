@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+         body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .carousel {
+            overflow: hidden;
+            position: relative;
+            width: 500px;
+            height: 400px;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .carousel-image {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .control-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+        #stop {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-purple-200 flex items-center justify-center min-h-screen">
+    <div class="carousel relative">
+        <div class="carousel-images">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/amandina2.jpg" alt="Image 1" class="carousel-image1">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/gateaux3.jpg" alt="Image 2" class="carousel-image2">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/bombons2.jpg" alt="Image 3" class="carousel-image3">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/brownieFramboise.jpg" alt="Image 1" class="carousel-image1">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/chocolateChips.jpg" alt="Image 2" class="carousel-image2">
+            <img src="/../../../chocolate/chocolate/chocolate_groupe2/public/assets/nouvelles img/pancake.jpg" alt="Image 3" class="carousel-image3">
+        </div>
+        <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">❮</button>
+        <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">❯</button>
+        <button id="stop" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-purple-300 text-white p-2 m-2">Stop</button>
+    </div>
+
+    <script>
+        const images = document.querySelector('.carousel-images');
+        const imageCount = images.children.length;
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+        const stopButton = document.getElementById('stop');
+        let index = 0;
+        let interval;
+
+        function showImage(idx) {
+            const offset = -idx * 100;
+            images.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextImage() {
+            index = (index + 1) % imageCount;
+            showImage(index);
+        }
+
+        function prevImage() {
+            index = (index - 1 + imageCount) % imageCount;
+            showImage(index);
+        }
+
+        function startCarousel() {
+            interval = setInterval(nextImage, 3000);
+        }
+
+        function stopCarousel() {
+            clearInterval(interval);
+        }
+
+        nextButton.addEventListener('click', nextImage);
+        prevButton.addEventListener('click', prevImage);
+        stopButton.addEventListener('click', stopCarousel);
+
+        startCarousel();
+    </script>
+</body>
+</html>
