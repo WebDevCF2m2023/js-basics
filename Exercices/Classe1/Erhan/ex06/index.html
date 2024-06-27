@@ -8,8 +8,6 @@
 <body>
     <div id="div">
         <h1 id="title">Title</h1>
-        <p>Salut</p>
-        <p>Hello</p>
     </div>
     <button id="bouton">Button</button>    
 </body>
@@ -23,12 +21,12 @@
         "Titre 5"
     ]
 
-    document.getElementById("title");
+    const title = document.getElementById("title");
     const bouton = document.getElementById("bouton");
     bouton.addEventListener("click", function (){
         for(let i=0; i<liste.length; i++){
             title.innerHTML = Math.floor(Math.random() * liste[i]);
-        }
+        };
     });
 </script>
 </html>
