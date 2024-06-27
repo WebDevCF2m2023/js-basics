@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    // Create a button that changes randomly the color of a div when clicked
+
+    <div id="div" style="width: 100px; height: 100px; background-color: red;"></div>
+    <button id="button">Change color</button>
+
+    <script>
+        const div = document.getElementById('div');
+        const button = document.getElementById('button');
+
+        button.addEventListener('click', () => {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            div.style.backgroundColor = '#' + randomColor;
+        });
+    </script>
+
+    
+
+
+    
+</body>
+</html>
