@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen">
+        <div class="w-1/2 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <img id="carousel-image" src="" alt="carousel image" class="w-full rounded-md">
+            </div>
+            <div class="flex justify-between">
+                <button id="previous-btn" type="button" class="px-4 py-2 bg-blue-500 text-white rounded-md">Précédent</button>
+                <div button id="stop-btn" type="button" class="px-4 py-2 bg-blue-500 text-white rounded-md">Stop</button>
+                <button id="next-btn" type="button" class="px-4 py-2 bg-blue-500 text-white rounded-md">Suivant</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = ['https://inspgr.id/app/uploads/2021/03/photography-aishy-01-805x345.jpg', 'https://inspgr.id/app/uploads/2021/03/photography-aishy-02-805x345.jpg', 'https://inspgr.id/app/uploads/2021/03/photography-aishy-03-805x345.jpg'];
+        const img = document.getElementById('carousel-image');
+        const previous = document.getElementById('previous-btn');
+        const next = document.getElementById('next-btn');
+        const stop = document.getElementById('stop-btn');
+        let index = 0;
+        let intervalId;
+
+        img.src = images[index];
+
+        next.addEventListener('click', () => {
+            index++;
+            if (index >= images.length) {
+                index = 0;
+            }
+            img.src = images[index];
+        });
+
+        stop.addEventListener('click', () => {
+            stopAutoScroll();
+        });
+
+        previous.addEventListener('click', () => {
+            index--;
+            if (index < 0) {
+                index = images.length - 1;
+            }
+            img.src = images[index];
+        });
+
+        function startAutoScroll() {
+            intervalId = setInterval(() => {
+                index++;
+                if (index >= images.length) {
+                    index = 0;
+                }
+                img.src = images[index];
+            }, 2000);
+        }
+
+        function stopAutoScroll() {
+            clearInterval(intervalId);
+        }
+
+        startAutoScroll();
+    </script>
+</body>
+</html>
