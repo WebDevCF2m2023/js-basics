@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+<div id="globalDiv">
+    <h1 id="mainHeading"></h1>
+    <h2 id="subHeading"></h2>
+    <div class="flex-col w-96 justify-center items-start h-screen mt-24 mx-auto">
+<div class="p-8 rounded-lg shadow-xl border-2 border-gray-500 mb-10">
+
+    <input type="text"
+           id="calcWindow"
+           class="w-full bg-gray-200 text-right p-4 mb-4 border border-gray-300 rounded-md focus:outline-none"
+           placeholder="0"
+           readonly>
+
+    <div class="grid grid-cols-4 gap-2">
+        <button onclick="clearResult()">C</button>
+        <button onclick="appendCharacter('(')">(</button>
+        <button onclick="appendCharacter(')')">)</button>
+        <button onclick="appendCharacter('/')" class="symButtons symButton">/</button>
+        <button onclick="appendCharacter('7')">7</button>
+        <button onclick="appendCharacter('8')">8</button>
+        <button onclick="appendCharacter('9')">9</button>
+        <button onclick="appendCharacter('*')" class="symButtons symButton">*</button>
+        <button onclick="appendCharacter('4')">4</button>
+        <button onclick="appendCharacter('5')">5</button>
+        <button onclick="appendCharacter('6')">6</button>
+        <button onclick="appendCharacter('-')" class="symButton">-</button>
+        <button onclick="appendCharacter('1')">1</button>
+        <button onclick="appendCharacter('2')">2</button>
+        <button onclick="appendCharacter('3')">3</button>
+        <button onclick="appendCharacter('+')" class="symButtons symButton">+</button>
+        <button onclick="appendCharacter('0')">0</button>
+        <button onclick="appendCharacter('.')">.</button>
+        <button onclick="calculateResult()" class="symButtons symButton">=</button>
+        <button onclick="appendCharacter('%')" class="symButtons symButton">%</button>
+    </div>
+</div>
+    <button id="nextPage"></button>
+
+
+    </div>
+    <footer>
+        &copy; <a href="https://leerlandais.com" target="_blank">Lee Brennan</a>
+    </footer>
+
+</div>
+<script src="scripts/sharedScript.js"></script>
+<script src="scripts/exe-12-calculator.js"></script>
+</body>
+</html>
+

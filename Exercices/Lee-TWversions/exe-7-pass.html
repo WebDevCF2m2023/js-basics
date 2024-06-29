@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Verification de Mot de Pass</title>
+</head>
+<body>
+<div id="globalDiv">
+    <h1 id="mainHeading"></h1>
+    <h2 id="subHeading"></h2>
+
+    <div class="min-h-[50%] flex items-center justify-center w-full dark:bg-gray-950">
+        <div class="bg-sky-500 bg-opacity-40 dark:bg-gray-900 shadow-xl shadow-black rounded-lg px-8 py-6 max-w-md">
+            <h1 class="text-2xl font-bold text-center mb-4 dark:text-gray-200">Verification</h1>
+            <form action="" id="passForm">
+                <div class="mb-4">
+                    <label for="passInput" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+                    <input type="password" id="passInput" class="text-center shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Mot De Passe">
+                </div>
+
+                <button type="submit" id="passButton" class="w-full py-2 px-4 rounded-md text-sm font-medium text-white bg-gray-600 hover:bg-red-600">Tester</button>
+            </form>
+            <span>Votre Mot de Passe doit :</span>
+            <ul class="max-w-md space-y-2 list-disc list-inside">
+                <li id="inpLen" class="text-gray-200">
+                    Au moins 10 caractères
+                </li>
+                <li id="inpMaj" class="text-gray-200">
+                    Au moins un Majusule
+                </li>
+                <li id="inpNum" class="text-gray-200">
+                    Au moins une Chiffre
+                </li>
+                <li id="inpSym" class="text-gray-200">
+                    Au moins un Symbol
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <h1 class="text-3xl" id="message"></h1>
+
+
+
+    <button id="nextPage" class="bg-gradient-to-b w-max mx-auto my-12 text-blue-500 font-semibold from-slate-50 to-blue-100 px-10 py-3 rounded-2xl shadow-blue-600 shadow-xl border-b-4 hover border-b border-blue-200 hover:shadow-sm transition-all duration-500"></button>
+
+    <footer>
+    &copy; <a href="https://leerlandais.com" target="_blank">Lee Brennan</a>
+</footer>
+</div>
+
+<script src="scripts/sharedScript.js"></script>
+<script src="scripts/exe-7-pass.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.spinIt {
+    transform: rotateY(-360deg);
+}
+.windowHolder {
+    width: 85%;
+    height: 40vw;
+    margin-bottom: 2vh;
+    transition: transform 2000ms ease-in-out;
+    margin: 0 auto;
+}
+
+.portalWindow {
+
+    border: 2px solid  hsla(211, 36%, 46%, 1);
+    border-radius: 20px;
+    /*    background-image: url("images/MoustacheGlasses.svg"); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    transition: all 450ms ease-in-out;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    margin: 1vh auto;
+    /* width and height in media */
+}
