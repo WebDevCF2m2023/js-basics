@@ -18,17 +18,17 @@ passButton.disabled = true;
 function validateInput() {
     let pwd = passInput.value;
 
-    pwd.length > 10 ? toggleColours("len", "text-gray-200")
+    pwd.length >= 10 ? toggleColours("len", "text-green-400")
         : toggleColours("len", "text-red-500");
 
-    /[A-Z]/.test(pwd) ? toggleColours("cap", "text-gray-200")
+    /[A-Z]/.test(pwd) ? toggleColours("cap", "text-green-400")
         : toggleColours("cap", "text-red-500");
 
-    /[0-9]/.test(pwd) ? toggleColours("num", "text-gray-200")
+    /[0-9]/.test(pwd) ? toggleColours("num", "text-green-400")
         : toggleColours("num", "text-red-500");
 
     /[!@#$%^"/=:?<>&,;*()_+]/.test(pwd)
-        ? toggleColours("sym", "text-gray-200")
+        ? toggleColours("sym", "text-green-400")
         : toggleColours("sym", "text-red-500");
 }
 
@@ -56,7 +56,7 @@ function toggleColours(factor, colour) {
 
     let pwd = passInput.value;
     // dernier vérification pour débloquer le bouton
-    if (pwd.length > 10 &&
+    if (pwd.length >= 10 &&
         /[A-Z]/.test(pwd) &&
         /[0-9]/.test(pwd) &&
         /[!@#$%^"/=:?<>&,;*()_+]/.test(pwd))

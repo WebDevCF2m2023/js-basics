@@ -71,7 +71,7 @@ switch (ourPage) {
     case "exe-12-calculator" :
         mainHeading.textContent = "Calculatrice";
         subHeading.textContent  = "Fait avec le minimum code possible";
-        nextLink.setAttribute("href", "exe-0-jokes.html");
+        nextLink.setAttribute("href", "index.html");
         break;
 // put more cases here
 
