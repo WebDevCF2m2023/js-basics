@@ -58,3 +58,4 @@ function getRandomJoke () {
     jokeWindow.textContent = jokeArray[jokePos];
 }
 getRandomJoke();
+

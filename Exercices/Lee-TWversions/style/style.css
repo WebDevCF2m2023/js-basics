@@ -27,3 +27,11 @@
     margin: 1vh auto;
     /* width and height in media */
 }
+
+#toDoItemUL li {
+    padding: 10px 0;
+}
+
+.removeButton {
+    margin-left: 5%;;
+}

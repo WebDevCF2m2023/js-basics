@@ -71,8 +71,13 @@ switch (ourPage) {
     case "exe-12-calculator" :
         mainHeading.textContent = "Calculatrice";
         subHeading.textContent  = "Fait avec le minimum code possible";
+        nextLink.setAttribute("href", "exe-15-toDo.html");
+        break;
+    case "exe-15-toDo" :
+        mainHeading.textContent = "Choses à Faire";
+        subHeading.textContent  = "N'oublie plus rien avec un ToDo List";
         nextLink.setAttribute("href", "index.html");
         break;
-// put more cases here
+
 
 }
