@@ -1,7 +1,25 @@
-<section class="material">
-    <p class="target">Haha, vous ne me changerez jamais !</p>
-    <p class="target">Moi non plus !</p>
-    <p class="target">Pouvez toujours courir !</p>
-    <p class="target">Tel est owned qui croyant owner !</p>
-    <p class="target">Moi, j'm'en fous…</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target</title>
+</head>
+<body>
+    <section class="material">
+        <p class="target">Haha, vous ne me changerez jamais !</p>
+        <p class="target">Moi non plus !</p>
+        <p class="target">Pouvez toujours courir !</p>
+        <p class="target">Tel est owned qui croyant owner !</p>
+        <p class="target">Moi, j'm'en fous…</p>
+    </section>    
+</body>
+</html>
+
+
+<script>
+    const target = document.querySelectorAll(".target");
+    for(let i=0; i<target.length; i++){
+        target[i].innerHTML = "owned";        
+    }    
+</script>

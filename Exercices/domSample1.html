@@ -1,3 +1,22 @@
-<section class="material">
-    <p class="target">Bonne chance !</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target</title>
+</head>
+<body>
+    <section class="material">
+        <p id="target">Bonne chance !</p>
+        <p class="target">Bonne chance !</p>        
+    </section>    
+</body>
+</html>
+
+
+<script>
+    const target1 = document.getElementById("target");
+    target1.innerHTML = "owned"
+    const target2 = document.querySelector(".target");
+    target2.innerHTML = "owned";
+</script>
