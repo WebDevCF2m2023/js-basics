@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The only thing I don't know how to manipulate with JS, the meta-title (easy with PHP, of course. I'll fix that soon!!!)</title>
+</head>
+<body>
+<div id="globalDiv">
+    <h1 id="mainHeading"></h1>
+    <h2 id="subHeading"></h2>
+    <h4>&lpar;Les blagues ont été fournies par Chat et elles ne sont pas très drôles &lpar;désolé&rpar;&rpar;</h4>
+
+    <section class="grid place-items-center bg-transparent p-16 mt-24">
+        <div class="flex items-center border-l-8 border-emerald-500 bg-emerald-50 p-4 text-emerald-900 shadow-lg mb-8">
+            <div class="min-w-0">
+                <h3 id="jokeWindow" class="overflow-hidden text-ellipsis"></h3>
+            </div>
+        </div>
+        <div class="relative flex flex-col space-y-10 justify-center overflow-hidden bg-transparent py-6 sm:py-12">
+            <button id="jokeButton" class="bg-gradient-to-b w-max mx-auto text-blue-500 font-semibold from-slate-50 to-blue-100 px-10 py-3 rounded-2xl shadow-green-800 shadow-xl border-b-4 hover border-b border-blue-200 hover:shadow-sm transition-all duration-500">Cliquer Ici</button>
+        </div>
+    </section>
+
+
+
+    <button id="nextPage" class="bg-gradient-to-b w-max mx-auto my-12 text-blue-500 font-semibold from-slate-50 to-blue-100 px-10 py-3 rounded-2xl shadow-blue-600 shadow-xl border-b-4 hover border-b border-blue-200 hover:shadow-sm transition-all duration-500"></button>
+    <footer class="mt-24">
+        &copy; <a href="https://leerlandais.com" target="_blank">Lee Brennan</a>
+    </footer>
+</div>
+
+<script src="scripts/sharedScript.js"></script>
+<script src="scripts/exe-0-jokes.js"></script>
+</body>
+</html>
+
