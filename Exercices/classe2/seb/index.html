@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titre">le titre</h1>
+    <div id="div1"> la div </div>
+    <button onclick="chgColor('titre');">clic</button>
+    
+</body>
+</html>
+
+
+<script>
+
+    function chgColor(currentDiv)
+    {
+        document.getElementById(currentDiv).style.color='red';
+        document.getElementById(currentDiv).innerText ="nouveau titre*";
+       
+    }
+</script>

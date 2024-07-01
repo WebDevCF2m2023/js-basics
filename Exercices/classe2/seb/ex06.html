@@ -1,0 +1,22 @@
+/*Créer un bouton qui change la couleur d'une div lorsqu'il est cliqué :*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="color" style="background-color: blue;">Lorem, ipsum dolor site</div>
+    <button>click</button>
+    <script>
+        let button = document.querySelector('button')
+        let divbox = document.querySelector('.color')
+
+        button.addEventListener ('click', function(){
+            let randomcolor = math.floor(math.random()*16777215).tostring(16);
+            divbox.style.backgroundcolor='#'+randomcolor;
+        })
+    </script>
+</body>
+</html>

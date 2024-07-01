@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var alertSpan = document.getElementById("password-alert");
+            if (password.length <= 10) {
+                alertSpan.style.display = "block";
+                return false;
+            }
+            alertSpan.style.display = "none";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Choisissez un nom d'utilisateur et un mot de passe</h2>
+        <form onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                <span id="password-alert" style="display: none; color: red;">Le mot de passe doit contenir plus de 10 caractères.</span>
+            </div>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <script defer src="carousel.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+   <style>
+        .bg-body {
+            background-color: teal;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-body flex items-center justify-center h-screen">
+<div class="relative w-full max-w-5xl overflow-hidden rounded-full ">
+    <div id="carousel" class="flex transition-transform duration-700">
+        <div class="w-full flex-shrink-0">
+            <img src="image/et1.jpg" class="w-full h-auto" alt="Image 1">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="image/et2.jpg" class="w-full h-auto" alt="Image 2">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="image/et3.jpg" class="w-full h-auto" alt="Image 3">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="image/et4.jpg" class="w-full h-auto" alt="Image 3">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="image/et5.jpg" class="w-full h-auto" alt="Image 3">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="image/et6.jpg" class="w-full h-auto" alt="Image 3">
+        </div>
+    </div>
+    <button id="prev" class="absolute top-1/2 left-1 transform -translate-y-1/2 bg-gray-800 text-white px-4 p-4 rounded-full">
+        Précédent
+    </button>
+    <button id="next" class="absolute top-1/2 right-1 transform -translate-y-1/2 bg-gray-800 text-white px-25 p-4 rounded-full">
+        Suivant
+    </button>
+    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2 p-4 pb-10">
+        <button id="start" class="bg-purple-500 text-white px-12 py-2 rounded">Start</button>
+        <button id="stop" class="bg-red-500 text-white px-12 py-2 rounded">Stop</button>
+    </div>
+</div>
+</body>
+</html>
