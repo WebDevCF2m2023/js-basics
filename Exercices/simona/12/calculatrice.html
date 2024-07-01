@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        function calculatrice_somme(nombre1, nombre2){
+            return nombre1 + nombre2;}
+        function calculatrice_difference(nombre1, nombre2){
+            return nombre1 - nombre2;}
+        function calculatrice_multiplication(nombre1, nombre2){
+             return nombre1 * nombre2;}
+        function calculatrice_division(nombre1, nombree2){
+            if (nombre2 ==0){ return "erreur: division par 0";}
+             else{ return nombre1 / nombre2;}
+        }
+       
+        
+while (true) {
+    let nombre1 = parseFloat(prompt("Entrez le premier nombre :"));
+    let nombre2 = parseFloat(prompt("Entrez le deuxième nombre :"));
+    let operation = prompt("Choisissez l'opération (+, -, *, /) :");
+
+    let result;
+    switch (operation) {
+        case "+":
+            result = calculatrice_somme(nombre1, nombre2);
+            break;
+        case "-":
+            result = calculatrice_difference(nombre1, nombre2);
+            break;
+        case "*":
+            result = calculatrice_multiplication(nombre1, nombre2);
+            break;
+        case "/":
+            result = calculatrice_division(nombre1, nombre2);
+            break;
+        default:
+            result = "Erreur : opération invalide";
+    }
+
+    alert("Résultat : " + result);
+
+    let continuer = confirm("Voulez-vous continuer ?");
+    if (!continuer) {
+        alert("Au revoir !");
+        break; 
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devine le nombre</title>
+    <style>
+        .devine{
+            margin-top: 300px;
+            margin-left: 600px;
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #391b05;
+            background-color: #f1e3d3;
+            border-radius: 8px 55px;
+            box-shadow: 0 7px 10px rgba(0, 0, 2, 1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-500px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+         #userGuess{
+            margin-bottom: 10px;
+         }
+         button{
+            margin: 10px
+         }
+         p{
+            color: #160a01;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: larger;
+         }
+         body{
+            background-color: rgb(225, 218, 211);
+         }
+    </style>
+</head>
+<body>
+    <div class="devine col-lg-6">
+    <h1>Devine le nombre entre 1 et 100 !</h1>
+    <p>Choisis un nombre :</p>
+    <input type="number" id="userGuess">
+    <button onclick="verifierNombre()">Vérifier</button>
+    <p id="resultat"></p>
+    <p>Nombre d'essais : <span id="essais">0</span></p>
+    <button onclick="reinitialiser()">Réinitialiser</button>
+    </div>
+
+    <script>
+        const nombreAleatoire = Math.floor(Math.random() * 100) + 1;
+        let essais = 0;
+
+        function verifierNombre() {
+            const userGuess = parseInt(document.getElementById("userGuess").value);
+            essais++;
+
+            if (userGuess === nombreAleatoire) {
+                document.getElementById("resultat").textContent = `Bravo ! Tu as trouvé le nombre ${nombreAleatoire} en ${essais} essais.`;
+            } else if (userGuess < nombreAleatoire) {
+                document.getElementById("resultat").textContent = "Plus grand !";
+            } else {
+                document.getElementById("resultat").textContent = "Plus petit !";
+            }
+
+            document.getElementById("essais").textContent = essais;
+        }
+
+        function reinitialiser() {
+            essais = 0;
+            document.getElementById("essais").textContent = essais;
+            document.getElementById("resultat").textContent = "";
+            document.getElementById("userGuess").value = "";
+        }
+    </script>
+</body>
+</html>
