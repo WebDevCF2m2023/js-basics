@@ -8,21 +8,21 @@ globalDiv.className     = "container-fluid flex-col text-center justify-center p
 mainHeading.className   = "block font-sans text-5xl font-semibold leading-tight tracking-normal text-gray-700 underline italic antialiased";
 subHeading.className    = "block font-sans text-3xl font-semibold leading-tight tracking-normal text-gray-700";
 
-let theUrl  = window.location.href,
-    getLast = theUrl.split('/').pop();
-let ourPage = getLast.replace('.html', '');
+let theUrl  = window.location.href, // récuperation d'URL complet
+    getLast = theUrl.split('/').pop(); // trouver le dernier / dans l'URL et prendre tout après
+let ourPage = getLast.replace('.html', ''); // enleve le .html (pas vraiment nécessaire mais je n'ai pas besoin donc ciao)
 
-let nextLink = document.createElement('a');
-    nextLink.textContent = "Au Suivant";
-nextPage.appendChild(nextLink);
+let nextLink = document.createElement('a'); // création d'un lien
+nextPage.appendChild(nextLink);     // nextPage est un div présent sur toutes les pages
 
 console.log('this ; ' + ourPage); // première con.log - je n'ai plus besoin de verifier chaque étape mais ceci est nouveau pour moi, alors je .log :D
 // maintenant, je sais sur quel page est affiché. La reste est facile
 
-switch (ourPage) {
-    case 'index':
+switch (ourPage) {  // switch sur le morceau d'URL récupéré
+    case 'index': // selon le page, changement des élements
         mainHeading.textContent = "Bienvenue";
         subHeading.textContent  = "Pas grand chose à voir ici, cliquez ci-dessous pour continuer"
+        nextLink.textContent = "Vers Les Blagues";
         nextLink.setAttribute("href", "exe-0-jokes.html");
 
         break;
@@ -30,12 +30,14 @@ switch (ourPage) {
         mainHeading.textContent = "Les Blagues";
         subHeading.textContent  = "Cliquez sur le bouton pour avoir une blague";
         nextLink.setAttribute("href", "exe-1-heure.html");
+        nextLink.textContent = "Vers L'Horloge";
         break;
     case "exe-1-heure" :
         mainHeading.textContent = "Horloge";
         subHeading.textContent  = "Une horloge (indiquant également les secondes, pour que vous puissiez voir qu'elle fonctionne sans attendre)";
         // nextLink.setAttribute("href", "exe-2-consoles.html");
         nextLink.setAttribute("href", "exe-4-carousel.html");
+        nextLink.textContent = "Vers Le Carrousel";
         break;
     case "exe-2-consoles" :
         mainHeading.textContent = "Consoles";
@@ -52,6 +54,7 @@ switch (ourPage) {
         subHeading.textContent  = "Carrousel d’images fait à la main";
         // nextLink.setAttribute("href", "exe-5-colours.html");
         nextLink.setAttribute("href", "exe-7-pass.html");
+        nextLink.textContent = "Vers-ification Mot de Passe";
         break;
     case "exe-5-colours" :
         mainHeading.textContent = "Couleurs";
@@ -67,16 +70,19 @@ switch (ourPage) {
         mainHeading.textContent = "Mot De Passe";
         subHeading.textContent  = "Vérifier la Sécurité d'un Mot de Passe";
         nextLink.setAttribute("href", "exe-12-calculator.html");
+        nextLink.textContent = "Vers La Calculatrice";
         break;
     case "exe-12-calculator" :
         mainHeading.textContent = "Calculatrice";
         subHeading.textContent  = "Fait avec le minimum code possible";
         nextLink.setAttribute("href", "exe-15-toDo.html");
+        nextLink.textContent = "Panthère Rose :p";
         break;
     case "exe-15-toDo" :
-        mainHeading.textContent = "Choses à Faire";
+        mainHeading.textContent = "To Do, To Do, ToDo, ToDo, ToDo, ToDo, ToDoooooooooo";
         subHeading.textContent  = "N'oublie plus rien avec un ToDo List";
         nextLink.setAttribute("href", "index.html");
+        nextLink.textContent = "Rétour au Début";
         break;
 
 
