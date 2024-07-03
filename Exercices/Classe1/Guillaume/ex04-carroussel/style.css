@@ -1,3 +1,23 @@
+@font-face {
+  font-family: deathStranding ;
+  src: url(Sackers\ Gothic\ Light\ AT.otf);
+}
+
+body{
+  background: linear-gradient(0deg,#1a1819 0%, #9b9797 35%,#ffffff 100%);
+}
+
+h1{
+  font-family: deathStranding;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+button{
+  font-family: deathStranding;
+  color: white;
+}
+
 * {box-sizing:border-box}
 
 /* Slideshow container */
@@ -12,6 +32,10 @@
   display: none;
 }
 
+.mySlides1 {
+  display: block;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -23,7 +47,7 @@
   color: white;
   font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
+  transition: 1.2s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
@@ -42,6 +66,7 @@
 /* Caption text */
 .text {
   color: #f2f2f2;
+  font-family: deathStanding;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -78,7 +103,8 @@
 /* Fading animation */
 .fade {
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2.5s;
+
 }
 
 @keyframes fade {
