@@ -19,6 +19,7 @@ function renderItems() {
 
         const button = document.createElement("button")
         button.textContent = "Delete";
+        button.style.border = "2px solid tomato";
         button.onclick = () => removeItem(idx) // ()=> call this function in another function. Otherwise it is gonna call the removeItem function automatically.
 
         container.appendChild(text)
