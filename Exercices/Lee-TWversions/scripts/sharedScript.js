@@ -81,8 +81,14 @@ switch (ourPage) {  // switch sur le morceau d'URL récupéré
     case "exe-15-toDo" :
         mainHeading.textContent = "To Do, To Do, ToDo, ToDo, ToDo, ToDo, ToDoooooooooo";
         subHeading.textContent  = "N'oublie plus rien avec un ToDo List";
+        nextLink.setAttribute("href", "exe-16-snake.html");
+        nextLink.textContent = "Vers Snake V2";
+        break;
+    case "exe-16-snake" :
+        mainHeading.textContent = "Snake is Back";
+        subHeading.innerHTML  = `Nouvelle Version du Snake (<a href=\"https://2023.webdev-cf2m.be/Lee/javaStuff/newsnake.html\" target="_blank">old version</a>)`;
         nextLink.setAttribute("href", "index.html");
-        nextLink.textContent = "Rétour au Début";
+        nextLink.textContent = "Retour au Début";
         break;
 
 
