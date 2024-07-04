@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation du DOM</title>
+</head>
+<body>
+    <div id="colorBox" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <button id="changeColorButton">Change Color</button>
+    <script>
+        document.getElementById('changeColorButton').addEventListener('click', () => {
+        let colorBox = document.getElementById('colorBox');
+        colorBox.style.backgroundColor = colorBox.style.backgroundColor === 'lightblue' ? 'lightgreen' : 'lightblue';
+    });
+    </script>
+</body>
+</html>

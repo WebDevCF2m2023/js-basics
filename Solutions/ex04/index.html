@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-inner img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div id="carousel" class="carousel relative w-80 h-96 overflow-hidden">
+        <div class="carousel-inner">
+            <img src="https://picsum.photos/200/300?random=1" alt="Image 1">
+            <img src="https://picsum.photos/200/300?random=2" alt="Image 2">
+            <img src="https://picsum.photos/200/300?random=3" alt="Image 3">
+        </div>
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 space-x-4 flex gap-2">
+            <button id="backwardBtn" class="btn bg-blue-500 text-white px-4 py-2 rounded">Backward</button>
+            <button id="stopBtn" class="btn bg-red-500 text-white px-4 py-2 rounded">Stop</button>
+            <button id="forwardBtn" class="btn bg-green-500 text-white px-4 py-2 rounded">Forward</button>
+        </div>
+    </div>
+
+    <script>
+        let carousel = document.getElementById('carousel');
+        let carouselInner = carousel.querySelector('.carousel-inner');
+        let images = carouselInner.getElementsByTagName('img');
+        let stopBtn = document.getElementById('stopBtn');
+        let forwardBtn = document.getElementById('forwardBtn');
+        let backwardBtn = document.getElementById('backwardBtn');
+        let currentIndex = 0;
+        let intervalId;
+
+        function updateCarousel() {
+            carouselInner.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        }
+
+        function startCarousel() {
+            intervalId = setInterval(function() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }, 2000);
+        }
+
+        function stopCarousel() {
+            clearInterval(intervalId);
+        }
+
+        function goToNextImage() {
+            stopCarousel();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+            startCarousel();
+        }
+
+        function goToPreviousImage() {
+            stopCarousel();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+            startCarousel(); 
+        }
+
+        stopBtn.addEventListener('click', stopCarousel);
+        forwardBtn.addEventListener('click', goToNextImage);
+        backwardBtn.addEventListener('click', goToPreviousImage);
+
+        startCarousel();
+    </script>
+</body>
+</html>
