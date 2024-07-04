@@ -39,7 +39,8 @@ function validateInput() {
 function toggleColours(factor, colour) {
     message.textContent = '';
     // preparation du défaut class
-    let baseClass = "list-group-item bg-transparent";
+    let baseClass = "list-group-item bg-transparent",
+        elem = "";
 
     // trouver quelle element à changer
     switch (factor) {
@@ -57,7 +58,7 @@ function toggleColours(factor, colour) {
         break;
     }
     
-    elem.classList.contains(colour) 
+    elem.classList.contains(colour)
         ? undefined  // si couleur est déjà présent, pas de changement nécessaire                              
         : elem.className = baseClass + " " + colour; // sinon ajoute nouvelle couleur
 
@@ -80,4 +81,8 @@ function sendForm() {
 }
 
 
-
+function fizzBuzz () {
+    for (let i = 1; i <= 100; i++) {
+        i % 15 === 0 ? console.log("FizzBuzz") : i % 5 === 0 ? console.log("Buzz") : i % 3 === 0 ? console.log('Fizz') : undefined
+    }
+}

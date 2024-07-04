@@ -13,7 +13,6 @@ function clearResult() {
 function appendCharacter(btnPressed) {
     calcWindow.value += btnPressed;
 }
-
 // one function to bring them all, and in the darkness, eval() them
 function calculateResult() {
     let result =

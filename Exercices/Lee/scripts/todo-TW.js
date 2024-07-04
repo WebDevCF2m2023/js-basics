@@ -1,23 +1,9 @@
-/*
-// Petit fonction pour remplir vite fait le localStorage (LS) afin de commencer création du liste (l'ajout via HTML n'est pas encore ajouté) 
-function runOnce() {
-    let count = 0;
-    for (let i = 0; i <3; i++) {
-        localStorage.setItem("listItem"+i, "Item "+i);
-        count++;
-    }
-    localStorage.setItem("listCount", count);
-}
-runOnce();
-*/
-
 // déclaration des nécessaires const et let
 const listContainer = document.getElementById("listContainer");
 
 let listCount = localStorage.getItem("listCount"),
     listArray = [];
-// console.log (listCount) 
-
+// console.log (listCount)
 function listCreation(list) {
  
     let i = 0;
@@ -30,7 +16,6 @@ function listCreation(list) {
         i++
     }
     console.log("list length : " + listArray.length);
-
 
         console.log(listArray);
     for (i = 0; i < listArray.length; i++) {
