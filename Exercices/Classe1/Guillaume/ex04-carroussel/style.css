@@ -5,6 +5,8 @@
 
 body{
   background: linear-gradient(0deg,#1a1819 0%, #9b9797 35%,#ffffff 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1{
