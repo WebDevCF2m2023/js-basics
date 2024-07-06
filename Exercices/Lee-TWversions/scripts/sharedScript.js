@@ -91,5 +91,9 @@ switch (ourPage) {  // switch sur le morceau d'URL récupéré
         nextLink.setAttribute("href", "index.html");
         nextLink.textContent = "Retour au Début";
         break;
-
+    default :
+    mainHeading.textContent = "Bienvenue";
+    subHeading.textContent  = "Pas grand chose à voir ici, cliquez ci-dessous pour continuer"
+    nextLink.textContent = "Vers Les Blagues";
+    nextLink.setAttribute("href", "exe-0-jokes.html");
 }

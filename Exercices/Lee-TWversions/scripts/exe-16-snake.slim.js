@@ -14,7 +14,6 @@ let snakeX = canvasWidth/ 2,
 for (let i = 0; i < snakeBaseLength; i++) {
     snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY });
 }
-
 function prepareFood() {
     const maxWidth = Math.floor(canvasWidth / snakeSegment);
     const maxHeight = Math.floor(canvasHeight / snakeSegment);
@@ -28,12 +27,10 @@ function prepareFood() {
         }
     }
 }
-
 function placeFood() {
     context.fillStyle = "red";
     context.fillRect(foodX, foodY, snakeSegment, snakeSegment);
 }
-
 function createSnake() {
     context.clearRect(0, 0, canvasWidth, canvasHeight);
 let headPos = true;
@@ -44,27 +41,28 @@ let headPos = true;
     });
     placeFood();
 }
-
 createSnake();
 prepareFood();
 placeFood();
-
 document.addEventListener('keydown', function(btnPressed) {
-    if (btnPressed.code === 'ArrowUp' || btnPressed.code === 'ArrowDown' || btnPressed.code === 'Numpad8' || btnPressed.code === 'Numpad2' || btnPressed.code === "KeyW" || btnPressed === 'KeyS') { 
+    let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
+        rightButtons = ["ArrowRight", "Numpad6", "KeyD"],
+        upButtons = ["ArrowUp", "Numpad8", "KeyW"],
+        downButtons = ["ArrowDown", "Numpad2", "KeyS"];
+    if (upButtons.includes(btnPressed.code) || downButtons.includes(btnPressed.code)) {
         btnPressed.preventDefault();
     }
-    if (btnPressed.code === 'ArrowLeft' || btnPressed.code === 'Numpad4' || btnPressed.code === 'KeyA') {
+    if (leftButtons.includes(btnPressed.code)) {
         snakeDirection = "LEFT";
-        } else if (btnPressed.code === 'ArrowRight' || btnPressed.code === 'Numpad6' || btnPressed.code === 'KeyD') {
+    } else if (rightButtons.includes(btnPressed.code)) {
         snakeDirection = "RIGHT";
-        } else if (btnPressed.code === 'ArrowUp' || btnPressed.code === 'Numpad8' || btnPressed.code === 'KeyW') {
+    } else if (upButtons.includes(btnPressed.code)) {
         snakeDirection = "UP";
-        } else if (btnPressed.code === 'ArrowDown' || btnPressed.code === 'Numpad2' || btnPressed.code === 'KeyS') {
+    } else if (downButtons.includes(btnPressed.code)) {
         snakeDirection = "DOWN";
     }
     updateSnake(snakeDirection);
 });
-
 function updateSnake() {
     let head = { ...snakeBodyArray[0] };
     if (snakeDirection === 'UP') {
@@ -77,12 +75,12 @@ function updateSnake() {
         head.x += snakeSegment;
     }
     if (head.x < 0 || head.x >= canvasWidth || head.y < 0 || head.y >= canvasHeight) {
-        alert("Game Over! T'as touché le mur");
+        alert("Game Over! T'as touché le mur. Ton score est :" +snakeBodyArray.length);
         window.location.reload();
     }
     for (let i = 1; i < snakeBodyArray.length; i++) {
         if (head.x === snakeBodyArray[i].x && head.y === snakeBodyArray[i].y) {
-            alert("Game Over! Tu t'as bouffé toi-même");
+            alert("Game Over! Tu t'as bouffé toi-même. Ton score est :" +snakeBodyArray.length);
             window.location.reload();
         }
     }
@@ -94,7 +92,6 @@ function updateSnake() {
     snakeBodyArray.pop();
     createSnake();
 }
-
 setInterval(() => {
 updateSnake(snakeDirection);
 }, 100);

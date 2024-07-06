@@ -67,21 +67,23 @@ placeFood();
 
 // première fois que je l'essai mais pourquoi pas écouter le DOM entière
 document.addEventListener('keydown', function(btnPressed) {
-
+    // tableaux pour les touches clavier
+    // avec AZERTY "KeyW" == "Z"
+let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
+    rightButtons = ["ArrowRight", "Numpad6", "KeyD"],
+    upButtons = ["ArrowUp", "Numpad8", "KeyW"],
+    downButtons = ["ArrowDown", "Numpad2", "KeyS"];
     // Si Up/Down, ne bouge pas l'écran
-    if (btnPressed.code === 'ArrowUp' || btnPressed.code === 'ArrowDown' || btnPressed.code === 'Numpad8' || btnPressed.code === 'Numpad2' || btnPressed.code === "KeyW" || btnPressed === 'KeyS') {
-        // sans doute mieux dans un tableaux?? dontMoveArray.includes(btnPress.code)?
+    if (upButtons.includes(btnPressed.code) || downButtons.includes(btnPressed.code)) {
         btnPressed.preventDefault();
     }
-    // sinon, écoute les autres touches btn // Note to self : add optional choice, it will shorten the code
-    if (btnPressed.code === 'ArrowLeft' || btnPressed.code === 'Numpad4' || btnPressed.code === 'KeyA') {
+    if (leftButtons.includes(btnPressed.code)) {
         snakeDirection = "LEFT";
-        // même que avant, mettre les boutons pour chaque diréction dans des tableaux... leftMoveButtons = ["ArrowRight","Num6", etc]
-        } else if (btnPressed.code === 'ArrowRight' || btnPressed.code === 'Numpad6' || btnPressed.code === 'KeyD') {
+        } else if (rightButtons.includes(btnPressed.code)) {
         snakeDirection = "RIGHT";
-     } else if (btnPressed.code === 'ArrowUp' || btnPressed.code === 'Numpad8' || btnPressed.code === 'KeyW') {
+     } else if (upButtons.includes(btnPressed.code)) {
         snakeDirection = "UP";
-        } else if (btnPressed.code === 'ArrowDown' || btnPressed.code === 'Numpad2' || btnPressed.code === 'KeyS') {
+        } else if (downButtons.includes(btnPressed.code)) {
         snakeDirection = "DOWN";
     }
     updateSnake(snakeDirection);
@@ -104,13 +106,13 @@ function updateSnake() {
 
     // verifier si tête touche les bordures du canvas
     if (head.x < 0 || head.x >= canvasWidth || head.y < 0 || head.y >= canvasHeight) {
-        alert("Game Over! T'as touché le mur");
+        alert("Game Over! T'as touché le mur. Ton score est :" +snakeBodyArray.length);
         window.location.reload();
     }
     // et aussi pour auto-collision
     for (let i = 1; i < snakeBodyArray.length; i++) {
         if (head.x === snakeBodyArray[i].x && head.y === snakeBodyArray[i].y) {
-            alert("Game Over! Tu t'as bouffé toi-même");
+            alert("Game Over! Tu t'as bouffé toi-même. Ton score est :" +snakeBodyArray.length);
             window.location.reload();
         }
     }
