@@ -54,7 +54,7 @@ const jokeWindow = document.getElementById("jokeWindow"),
 jokeButton.addEventListener('click', getRandomJoke)
 
 function getRandomJoke () {
-    let jokePos = Math.floor(Math.random()*jokeArray.length) + 1;
+    let jokePos = Math.floor(Math.random()*jokeArray.length); // Haha, J'ai automatiquement mise +1 après le Math.random() - resultat, occasionallement, affichage du vide - dans ce cas, 0 est nécessaire comme possibilité
     jokeWindow.textContent = jokeArray[jokePos];
 }
 getRandomJoke();

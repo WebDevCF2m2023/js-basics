@@ -7,6 +7,7 @@ const   mainHeading = document.getElementById("mainHeading"),
 globalDiv.className     = "container-fluid flex-col text-center justify-center pt-16 mx-auto bg-gradient-to-t from-green-400 to-sky-600 h-screen";
 mainHeading.className   = "block font-sans text-5xl font-semibold leading-tight tracking-normal text-gray-700 underline italic antialiased";
 subHeading.className    = "block font-sans text-3xl font-semibold leading-tight tracking-normal text-gray-700";
+nextPage.className      = "bg-gradient-to-b w-max mx-auto my-12 text-blue-500 font-semibold from-slate-50 to-blue-100 px-10 py-3 rounded-2xl shadow-blue-600 shadow-xl border-b-4 hover border-b border-blue-200 hover:shadow-sm transition-all duration-500"
 
 let theUrl  = window.location.href, // récuperation d'URL complet
     getLast = theUrl.split('/').pop(); // trouver le dernier / dans l'URL et prendre tout après
@@ -90,6 +91,5 @@ switch (ourPage) {  // switch sur le morceau d'URL récupéré
         nextLink.setAttribute("href", "index.html");
         nextLink.textContent = "Retour au Début";
         break;
-
 
 }
