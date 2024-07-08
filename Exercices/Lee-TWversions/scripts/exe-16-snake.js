@@ -19,6 +19,7 @@ for (let i = 0; i < snakeBaseLength; i++) {
     // essai de faire avec un objet - avant, j'ai calculer à chaque moment...ceci est plus éfficace (j'espère)
     snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY });
 }
+let gameOn = false;
 let foodX, foodY;
 
 function prepareFood() {
@@ -72,8 +73,10 @@ placeFood();
 
 // première fois que je l'essai mais pourquoi pas écouter le DOM entière
 document.addEventListener('keydown', function(btnPressed) {
+    gameOn = true;
     // tableaux pour les touches clavier
     // avec AZERTY "KeyW" == "Z"
+    console.log(btnPressed.code);
     if (btnPressed.code === "ArrowUp" || btnPressed.code === "ArrowDown") {
         btnPressed.preventDefault();
     }
@@ -138,12 +141,12 @@ function updateSnake() {
     createSnake();
 }
 
-
+    setInterval(() => {
+if(gameOn === true){
 // MaJ du Snake 10/s
-setInterval(() => {
-updateSnake(snakeDirection);
-}, 100);
-
+        updateSnake();
+}
+    }, 100);
 
 /*
 TO DO :
