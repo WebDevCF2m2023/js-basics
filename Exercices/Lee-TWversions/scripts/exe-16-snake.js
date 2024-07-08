@@ -22,6 +22,13 @@ for (let i = 0; i < snakeBaseLength; i++) {
 let gameOn = false;
 let foodX, foodY;
 
+let gameInterval= setInterval(() => {
+    if(gameOn === true){
+// MaJ du Snake 10/s
+        updateSnake();
+    }
+}, 100);
+
 function prepareFood() {
     // pour permettre facile changement de taille du canvas, mieux des variables que des montant fixe
     const maxWidth = Math.floor(canvasWidth / snakeSegment);
@@ -65,6 +72,7 @@ let headPos = true; // pour couleurer la tête du Snake
 }
 // appel de fonction pour créér le Snake
 createSnake();
+updateSnake();
 // et aussi pour son diner
 prepareFood();
 placeFood();
@@ -76,7 +84,6 @@ document.addEventListener('keydown', function(btnPressed) {
     gameOn = true;
     // tableaux pour les touches clavier
     // avec AZERTY "KeyW" == "Z"
-    console.log(btnPressed.code);
     if (btnPressed.code === "ArrowUp" || btnPressed.code === "ArrowDown") {
         btnPressed.preventDefault();
     }
@@ -86,13 +93,13 @@ let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
     upButtons = ["ArrowUp", "Numpad8", "KeyW"],
     downButtons = ["ArrowDown", "Numpad2", "KeyS"];
     // Si Up/Down, ne bouge pas l'écran
-    if (leftButtons.includes(btnPressed.code)) {
+    if (leftButtons.includes(btnPressed.code) && snakeDirection !== "RIGHT"){
         snakeDirection = "LEFT";
-        } else if (rightButtons.includes(btnPressed.code)) {
+        } else if (rightButtons.includes(btnPressed.code) && snakeDirection !== "LEFT") {
         snakeDirection = "RIGHT";
-     } else if (upButtons.includes(btnPressed.code)) {
+     } else if (upButtons.includes(btnPressed.code) && snakeDirection !== "DOWN") {
         snakeDirection = "UP";
-        } else if (downButtons.includes(btnPressed.code)) {
+        } else if (downButtons.includes(btnPressed.code) && snakeDirection !== "UP") {
         snakeDirection = "DOWN";
     }
     updateSnake(snakeDirection);
@@ -116,12 +123,14 @@ function updateSnake() {
     // verifier si tête touche les bordures du canvas
     if (head.x < 0 || head.x >= canvasWidth || head.y < 0 || head.y >= canvasHeight) {
         alert("Game Over! T'as touché le mur. Ton score est :" +snakeBodyArray.length);
+        clearInterval(gameInterval);
         window.location.reload();
     }
     // et aussi pour auto-collision
     for (let i = 1; i < snakeBodyArray.length; i++) {
         if (head.x === snakeBodyArray[i].x && head.y === snakeBodyArray[i].y) {
             alert("Game Over! Tu t'as bouffé toi-même. Ton score est :" +snakeBodyArray.length);
+            clearInterval(gameInterval);
             window.location.reload();
         }
     }
@@ -141,12 +150,6 @@ function updateSnake() {
     createSnake();
 }
 
-    setInterval(() => {
-if(gameOn === true){
-// MaJ du Snake 10/s
-        updateSnake();
-}
-    }, 100);
 
 /*
 TO DO :
