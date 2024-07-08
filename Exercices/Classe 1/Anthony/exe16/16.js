@@ -52,10 +52,10 @@ function update(){
 
 
 //Background du jeu
-context.fillStyle = "green";
+context.fillStyle = "#d1db5a";
 context.fillRect(0,0,board.width,board.height);
 
-context.fillStyle = "yellow";
+context.fillStyle = "red";
 context.fillRect(foodX,foodY,blockSize,blockSize);
 
 if(snakeX === foodX && snakeY === foodY){
@@ -71,7 +71,7 @@ if (snakeBody.length){
     snakeBody[0] = [snakeX,snakeY];
 }
 
-context.fillStyle = "blue";
+context.fillStyle = "#81a20c";
 snakeX += speedX * blockSize; // mets à jour position serpent sur l'axe X
 snakeY += speedY * blockSize; // mets à jour sur l'axe Y
 context.fillRect(snakeX,snakeY,blockSize,blockSize);
