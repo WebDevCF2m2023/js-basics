@@ -99,13 +99,21 @@ function createSnake() {
             } else if (tailDir === 'DOWN') {
                 imgTail.src = "images/snake/tail_up.png";
             }
-            context.drawImage(imgTail, snakePart.x, snakePart.y, snakeSegment, snakeSegment); // je dois encore corriger ceci pour qu'il n'est pas tjs dans même direction de la tête
+            context.drawImage(imgTail, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
         } else {
-                // detérminer direction actuel de chaque segment et utilise the 
+                // detérminer direction actuel de chaque segment et utilise l'image qui correspond 
             if (snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') {
                 context.drawImage(imgBodyH, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
             } else if (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') {
                 context.drawImage(imgBodyV, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+            }
+
+            let previousPart = snakeBodyArray[index - 1];
+            if ((snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') &&
+                (previousPart.direction === 'UP' || previousPart.direction === 'DOWN') ||
+                (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') &&
+                (previousPart.direction === 'LEFT' || previousPart.direction === 'RIGHT')) {
+                console.log(`bend ${index}`);
             }
         }
     });
@@ -150,6 +158,7 @@ let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
 });
 
 function updateSnake() {
+    // inclure le direction dans de la tête
     let newHead = { 
         x: snakeBodyArray[0].x, 
         y: snakeBodyArray[0].y, 
