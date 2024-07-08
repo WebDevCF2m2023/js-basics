@@ -5,7 +5,7 @@ const canvas = document.getElementById("snake"),
       context = canvas.getContext('2d');
 const canvasWidth = canvas.width,    // afin de le rendre plus facile de positioner le Snake
       canvasHeight = canvas.height,
-      snakeSegment = 20,       // et de lui donner une taille
+      snakeSegment = 25,       // et de lui donner une taille
       snakeBaseLength = 5;  // et un longeur
 
 
@@ -49,7 +49,7 @@ function prepareFood() {
 
 function placeFood() {
     let img = new Image();
-    img.src = "images/StarsEyes.svg";
+    img.src = "images/snake/apple.png";
     context.drawImage(img, foodX, foodY, snakeSegment, snakeSegment);
 }
 
@@ -58,8 +58,8 @@ function placeFood() {
 function createSnake() {
     let img = new Image();
     let img2 = new Image();
-    img.src = "images/PurpleDevil.svg";
-    img2.src = "images/MoneySmile.svg"
+    img.src = "images/snake/head_left.png";
+    img2.src = "images/snake/body_horizontal.png"
     context.clearRect(0, 0, canvasWidth, canvasHeight); // Bonne pratique, vide toujours le Canvas avant commencer
 
 let headPos = true; // pour couleurer la tête du Snake
