@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Exercice 05</title>
+  </head>
+  <body>
+    <h2>
+      5/ Créer un bouton qui change la couleur d'une div lorsqu'il est cliqué :
+      <br />
+      Générer une couleur aléatoire avec une fonction
+    </h2>
+
+    <div id="colorBox" class="bg-black size-36 mb-2 rounded"></div>
+    <button
+      id="colorButton"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-2 py-2"
+    >
+      ChangeColor
+    </button>
+    <script>
+      let colorBox = document.getElementById("colorBox");
+      let colorButton = document.getElementById("colorButton");
+      let colors = ["bg-indigo-400", "bg-fuchsia-600", "bg-rose-800"];
+      let currentColorIndex = 0;
+
+      colorButton.addEventListener("click", () => {
+        colorButton.classList.remove(colors[currentColorIndex]);
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        colorBox.classList.add(colors[currentColorIndex]);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      3/ Manipuler le DOM: <br />
+      Dans le dossier Exercices utiliser le fichier domSample1.html pour :
+      <br />
+
+      Sélectionne la balise dont l'id est "target": remplace son contenu par
+      "owned". <br />
+      Sélectionne la balise p dont la classe est "target": remplace son contenu
+      par "owned". <br />
+      Dans le dossier Exercices utiliser le fichier domSample2.htmlpour : <br />
+
+      Sélectionne les balises dont la classe est "target": remplace leurs
+      contenus par "owned".
+    </p>
+
+    <section class="material">
+      <p id="target">Bonne chance !</p>
+    </section>
+
+    <section class="material">
+      <p class="target">Haha, vous ne me changerez jamais !</p>
+      <p class="target">Moi non plus !</p>
+      <p class="target">Pouvez toujours courir !</p>
+      <p class="target">Tel est owned qui croyant owner !</p>
+      <p class="target">Moi, j'm'en fous…</p>
+    </section>
+  </body>
+  <script>
+    document.getElementById("target").innerHTML = "owned";
+    document.querySelectorAll(".target").innerHTML = "owned";
+  </script>
+</html>
