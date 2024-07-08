@@ -40,19 +40,24 @@ function prepareFood() {
 }
 
 function placeFood() {
-    context.fillStyle = "red";
-    context.fillRect(foodX, foodY, snakeSegment, snakeSegment);
+    let img = new Image();
+    img.src = "images/StarsEyes.svg";
+    context.drawImage(img, foodX, foodY, snakeSegment, snakeSegment);
 }
 
 
 // et un fonction pour lui placer sur le canvas
 function createSnake() {
+    let img = new Image();
+    let img2 = new Image();
+    img.src = "images/PurpleDevil.svg";
+    img2.src = "images/MoneySmile.svg"
     context.clearRect(0, 0, canvasWidth, canvasHeight); // Bonne pratique, vide toujours le Canvas avant commencer
 
 let headPos = true; // pour couleurer la tête du Snake
     snakeBodyArray.forEach(snakePart => {
-        headPos ? context.fillStyle = "rgb(0 0 200)" : context.fillStyle = "rgb(0 200 0)" // tête = bleue, corp = vert
-        context.fillRect(snakePart.x, snakePart.y, snakeSegment, snakeSegment); // possibilité de faire un changement de snake quand il mange?
+        headPos ? context.drawImage(img, snakePart.x, snakePart.y, snakeSegment, snakeSegment) : context.drawImage(img2, snakePart.x, snakePart.y, snakeSegment, snakeSegment);  // tête = bleue, corp = vert
+
         headPos = false;
     });
     placeFood();
@@ -69,14 +74,15 @@ placeFood();
 document.addEventListener('keydown', function(btnPressed) {
     // tableaux pour les touches clavier
     // avec AZERTY "KeyW" == "Z"
+    if (btnPressed.code === "ArrowUp" || btnPressed.code === "ArrowDown") {
+        btnPressed.preventDefault();
+    }
+    if (btnPressed.repeat) return;
 let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
     rightButtons = ["ArrowRight", "Numpad6", "KeyD"],
     upButtons = ["ArrowUp", "Numpad8", "KeyW"],
     downButtons = ["ArrowDown", "Numpad2", "KeyS"];
     // Si Up/Down, ne bouge pas l'écran
-    if (upButtons.includes(btnPressed.code) || downButtons.includes(btnPressed.code)) {
-        btnPressed.preventDefault();
-    }
     if (leftButtons.includes(btnPressed.code)) {
         snakeDirection = "LEFT";
         } else if (rightButtons.includes(btnPressed.code)) {
@@ -137,7 +143,6 @@ function updateSnake() {
 setInterval(() => {
 updateSnake(snakeDirection);
 }, 100);
-
 
 
 /*
