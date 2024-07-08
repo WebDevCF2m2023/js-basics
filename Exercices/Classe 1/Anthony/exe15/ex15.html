@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen font-sans">
+  <div class="bg-white rounded shadow p-6 w-full lg:w-3/4 lg:max-w-lg">
+    <div class="mb-4">
+      <h1 class="text-2xl text-gray-800">Todo List</h1>
+      <div class="flex mt-4">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-700"
+          placeholder="Ajoutez une tâche" id="taskInput">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onclick="addTask()">Ajoutez</button>
+      </div>
+    </div>
+    <div>
+      <ul id="taskList" class="list-none p-0"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="ex15.js"></script>
+</body>
+
+</html>

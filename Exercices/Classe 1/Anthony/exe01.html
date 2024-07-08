@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe 1</title>
+</head>
+<body>
+    <h1 id="text"></h1>
+    <p id="date-time"></p>
+</body>
+<script>
+    function changeText(){
+         const time = new Date();
+         document.getElementById("date-time").innerHTML = time;
+
+        let texte =  document.getElementById("text");
+        if(time.getHours() < 12){
+            texte.innerHTML = "Good Morning";
+        }else if(time.getHours() < 18){
+            texte.innerHTML = "Good Afternoon";
+        }else{
+            texte.innerHTML = "Good Evening";
+        }
+}
+    changeText();
+
+</script>
+</html>
