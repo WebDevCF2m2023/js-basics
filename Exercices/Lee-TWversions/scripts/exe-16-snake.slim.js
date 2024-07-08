@@ -12,7 +12,7 @@ let snakeX = canvasWidth/ 2,
     foodX, foodY;
 
 for (let i = 0; i < snakeBaseLength; i++) {
-    snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY });
+    snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY, direction: snakeDirection });
 }
 function prepareFood() {
     const maxWidth = Math.floor(canvasWidth / snakeSegment);

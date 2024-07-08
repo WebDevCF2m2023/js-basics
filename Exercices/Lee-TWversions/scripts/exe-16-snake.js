@@ -15,9 +15,9 @@ let snakeX = canvasWidth/ 2,
 let snakeDirection = "LEFT";
 let snakeBodyArray = []; // un tableaux pour contenir le Snake
 // et un boucle pour le definir
+
 for (let i = 0; i < snakeBaseLength; i++) {
-    // essai de faire avec un objet - avant, j'ai calculer à chaque moment...ceci est plus éfficace (j'espère)
-    snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY });
+    snakeBodyArray.push({ x: snakeX + i * snakeSegment, y: snakeY, direction: snakeDirection });
 }
 let gameOn = false;
 let foodX, foodY;
@@ -56,26 +56,69 @@ function placeFood() {
 
 // et un fonction pour lui placer sur le canvas
 function createSnake() {
-    let img = new Image();
-    let img2 = new Image();
-    img.src = "images/snake/head_left.png";
-    img2.src = "images/snake/body_horizontal.png"
-    context.clearRect(0, 0, canvasWidth, canvasHeight); // Bonne pratique, vide toujours le Canvas avant commencer
+    let imgHead = new Image(),
+        imgBodyH = new Image(),
+        imgBodyV = new Image(),
+        imgTail = new Image();
 
-let headPos = true; // pour couleurer la tête du Snake
-    snakeBodyArray.forEach(snakePart => {
-        headPos ? context.drawImage(img, snakePart.x, snakePart.y, snakeSegment, snakeSegment) : context.drawImage(img2, snakePart.x, snakePart.y, snakeSegment, snakeSegment);  // tête = bleue, corp = vert
+    if (snakeDirection === 'LEFT') {
+        imgHead.src = "images/snake/head_left.png";
+        imgTail.src = "images/snake/tail_right.png";
+    } else if (snakeDirection === 'RIGHT') {
+        imgHead.src = "images/snake/head_right.png";
+        imgTail.src = "images/snake/tail_left.png";
+    } else if (snakeDirection === 'UP') {
+        imgHead.src = "images/snake/head_up.png";
+        imgTail.src = "images/snake/tail_down.png";
+    } else if (snakeDirection === 'DOWN') {
+        imgHead.src = "images/snake/head_down.png";
+        imgTail.src = "images/snake/tail_up.png";
+    } else {
+        imgHead.src = "images/snake/head_left.png";
+        imgTail.src = "images/snake/tail_right.png";
+    }
 
-        headPos = false;
+    imgBodyH.src = "images/snake/body_horizontal.png";
+    imgBodyV.src = "images/snake/body_vertical.png";
+
+    // toujours nettoyage avant dessiner
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    snakeBodyArray.forEach((snakePart, index) => {
+        if (index === 0) { // si 0, c'est la tête
+            context.drawImage(imgHead, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+        } else if (index === snakeBodyArray.length - 1) { // si length - 1, c'est le queue
+            // Afin d'utiliser le bon direction pour le queue, j'utilise le direction de son voisin
+            let tailDir = snakeBodyArray[snakeBodyArray.length - 2].direction;
+            if (tailDir === 'LEFT') {
+                imgTail.src = "images/snake/tail_right.png";
+            } else if (tailDir === 'RIGHT') {
+                imgTail.src = "images/snake/tail_left.png";
+            } else if (tailDir === 'UP') {
+                imgTail.src = "images/snake/tail_down.png";
+            } else if (tailDir === 'DOWN') {
+                imgTail.src = "images/snake/tail_up.png";
+            }
+            context.drawImage(imgTail, snakePart.x, snakePart.y, snakeSegment, snakeSegment); // je dois encore corriger ceci pour qu'il n'est pas tjs dans même direction de la tête
+        } else {
+                // detérminer direction actuel de chaque segment et utilise the 
+            if (snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') {
+                context.drawImage(imgBodyH, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+            } else if (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') {
+                context.drawImage(imgBodyV, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+            }
+        }
     });
+
     placeFood();
 }
+
 // appel de fonction pour créér le Snake
+
 createSnake();
 updateSnake();
 // et aussi pour son diner
 prepareFood();
-placeFood();
 
 
 
@@ -102,52 +145,56 @@ let leftButtons = ["ArrowLeft", "Numpad4","KeyA"],
         } else if (downButtons.includes(btnPressed.code) && snakeDirection !== "UP") {
         snakeDirection = "DOWN";
     }
+    
     updateSnake(snakeDirection);
 });
 
 function updateSnake() {
-
-    // Copie position de la tête
-    let head = { ...snakeBodyArray[0] };
-    // change direction
-    if (snakeDirection === 'UP') {
-        head.y -= snakeSegment;
-    } else if (snakeDirection === 'DOWN') {
-        head.y += snakeSegment;
-    } else if (snakeDirection === 'LEFT') {
-        head.x -= snakeSegment;
+    let newHead = { 
+        x: snakeBodyArray[0].x, 
+        y: snakeBodyArray[0].y, 
+        direction: snakeDirection 
+    };
+    
+    if (snakeDirection === 'LEFT') {
+        newHead.x -= snakeSegment;
     } else if (snakeDirection === 'RIGHT') {
-        head.x += snakeSegment;
+        newHead.x += snakeSegment;
+    } else if (snakeDirection === 'UP') {
+        newHead.y -= snakeSegment;
+    } else if (snakeDirection === 'DOWN') {
+        newHead.y += snakeSegment;
     }
 
+
     // verifier si tête touche les bordures du canvas
-    if (head.x < 0 || head.x >= canvasWidth || head.y < 0 || head.y >= canvasHeight) {
+    if (newHead.x < 0 || newHead.x >= canvasWidth || newHead.y < 0 || newHead.y >= canvasHeight) {
         alert("Game Over! T'as touché le mur. Ton score est :" +snakeBodyArray.length);
         clearInterval(gameInterval);
         window.location.reload();
     }
     // et aussi pour auto-collision
     for (let i = 1; i < snakeBodyArray.length; i++) {
-        if (head.x === snakeBodyArray[i].x && head.y === snakeBodyArray[i].y) {
+        if (newHead.x === snakeBodyArray[i].x && newHead.y === snakeBodyArray[i].y) {
             alert("Game Over! Tu t'as bouffé toi-même. Ton score est :" +snakeBodyArray.length);
             clearInterval(gameInterval);
             window.location.reload();
         }
     }
     // et finalement pour le Food
-    if (head.x === foodX && head.y === foodY) {
+    if (newHead.x === foodX && newHead.y === foodY) {
         // augment la taille du Snake
         snakeBodyArray.push({ x: snakeX * snakeSegment, y: snakeY });
-        console.log(snakeBodyArray.length+" after");
+
         // et placer un nouveau Food
         prepareFood();
     }
 
     // Je me rappel de la galère j'ai eu pour faire ceci la première fois mais je ne connaissais pas pop/unshift etc à ce moment
-    snakeBodyArray.unshift(head);
+    snakeBodyArray.unshift(newHead);
     snakeBodyArray.pop();
 
-    createSnake();
+    createSnake(snakeDirection);
 }
 
 
