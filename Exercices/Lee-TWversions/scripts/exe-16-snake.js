@@ -6,7 +6,7 @@ const canvas = document.getElementById("snake"),
 const canvasWidth = canvas.width,    // afin de le rendre plus facile de positioner le Snake
       canvasHeight = canvas.height,
       snakeSegment = 25,       // et de lui donner une taille
-      snakeBaseLength = 5;  // et un longeur
+      snakeBaseLength = 10;  // et un longeur
 
 
 // très facile de trouver le centre avec canvas...je me rappel de les difficultés pour faire le même avec snake_v1
@@ -59,7 +59,10 @@ function createSnake() {
     let imgHead = new Image(),
         imgBodyH = new Image(),
         imgBodyV = new Image(),
-        imgTail = new Image();
+        imgTail = new Image(),
+        imgBend = new Image();
+
+
 
     if (snakeDirection === 'LEFT') {
         imgHead.src = "images/snake/head_left.png";
@@ -85,10 +88,10 @@ function createSnake() {
     context.clearRect(0, 0, canvasWidth, canvasHeight);
 
     snakeBodyArray.forEach((snakePart, index) => {
-        if (index === 0) { // si 0, c'est la tête
+        if (index === 0) { // index 0 = tête
             context.drawImage(imgHead, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
-        } else if (index === snakeBodyArray.length - 1) { // si length - 1, c'est le queue
-            // Afin d'utiliser le bon direction pour le queue, j'utilise le direction de son voisin
+        } else if (index === snakeBodyArray.length - 1) { // et array.length -1 = queue
+            // detérmine direction pour queue selon direction du voisin
             let tailDir = snakeBodyArray[snakeBodyArray.length - 2].direction;
             if (tailDir === 'LEFT') {
                 imgTail.src = "images/snake/tail_right.png";
@@ -100,23 +103,52 @@ function createSnake() {
                 imgTail.src = "images/snake/tail_up.png";
             }
             context.drawImage(imgTail, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
-        } else {
-                // detérminer direction actuel de chaque segment et utilise l'image qui correspond 
-            if (snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') {
-                context.drawImage(imgBodyH, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
-            } else if (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') {
-                context.drawImage(imgBodyV, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
-            }
+        } else { // si pas tête ni queue, verifier si c'est courbé
+            let nextSegment = snakeBodyArray[index - 1];
 
-            let previousPart = snakeBodyArray[index - 1];
-            if ((snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') &&
-                (previousPart.direction === 'UP' || previousPart.direction === 'DOWN') ||
-                (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') &&
-                (previousPart.direction === 'LEFT' || previousPart.direction === 'RIGHT')) {
-                console.log(`bend ${index}`);
+            let isBent = false;
+            let bendImage ="";
+            // passer par toutes possibilités du courbe
+            if (snakePart.direction === "UP" && nextSegment.direction === 'LEFT') {
+                bendImage = "images/snake/body_bottomleft.png";
+                isBent = true;
+            } else if (snakePart.direction === "DOWN" && nextSegment.direction === 'LEFT') {
+                bendImage = "images/snake/body_topleft.png";
+                isBent = true;
+            } else if (snakePart.direction === "UP" && nextSegment.direction === 'RIGHT') {
+                bendImage = "images/snake/body_bottomright.png";
+                isBent = true;
+            } else if (snakePart.direction === "DOWN" && nextSegment.direction === 'RIGHT') {
+                bendImage = "images/snake/body_topright.png";
+                isBent = true;
+            } else if (snakePart.direction === "LEFT" && nextSegment.direction === 'UP') {
+                bendImage = "images/snake/body_topright.png";
+                isBent = true;
+            } else if (snakePart.direction === "LEFT" && nextSegment.direction === 'DOWN') {
+                bendImage = "images/snake/body_bottomright.png";
+                isBent = true;
+            } else if (snakePart.direction === "RIGHT" && nextSegment.direction === 'UP') {
+                bendImage = "images/snake/body_topleft.png";
+                isBent = true;
+            } else if (snakePart.direction === "RIGHT" && nextSegment.direction === 'DOWN') {
+                bendImage = "images/snake/body_bottomleft.png";
+                isBent = true;
+            }
+            // et appliquer l'image nécessaire
+            if (isBent) {
+                imgBend.src = bendImage;
+                context.drawImage(imgBend, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+            } else {
+                // detérmine si morceaux non-courbé sont horizontal ou vertical
+                if (snakePart.direction === 'LEFT' || snakePart.direction === 'RIGHT') {
+                    context.drawImage(imgBodyH, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+                } else if (snakePart.direction === 'UP' || snakePart.direction === 'DOWN') {
+                    context.drawImage(imgBodyV, snakePart.x, snakePart.y, snakeSegment, snakeSegment);
+                }
             }
         }
     });
+
 
     placeFood();
 }
@@ -130,7 +162,7 @@ prepareFood();
 
 
 
-// première fois que je l'essai mais pourquoi pas écouter le DOM entière
+
 document.addEventListener('keydown', function(btnPressed) {
     gameOn = true;
     // tableaux pour les touches clavier
