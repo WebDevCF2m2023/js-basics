@@ -20,7 +20,7 @@ const imageSources = [
     'images/snake/body_horizontal.png',
     'images/snake/body_vertical.png',
     'images/snake/body_bottomleft.png',
-    'images/snake/body_bottomrdight.png',
+    'images/snake/body_bottomright.png',
     'images/snake/body_topleft.png',
     'images/snake/body_topright.png'
 ];
