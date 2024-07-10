@@ -7,6 +7,47 @@ const canvasWidth = canvas.width,    // afin de le rendre plus facile de positio
       canvasHeight = canvas.height,
       snakeSegment = 25,       // et de lui donner une taille
       snakeBaseLength = 10;  // et un longeur
+// List of image sources
+const imageSources = [
+    'images/snake/head_left.png',
+    'images/snake/head_right.png',
+    'images/snake/head_down.png',
+    'images/snake/head_up.png',
+    'images/snake/tail_left.png',
+    'images/snake/tail_right.png',
+    'images/snake/tail_down.png',
+    'images/snake/tail_up.png',
+    'images/snake/body_horizontal.png',
+    'images/snake/body_vertical.png',
+    'images/snake/body_bottomleft.png',
+    'images/snake/body_bottomrdight.png',
+    'images/snake/body_topleft.png',
+    'images/snake/body_topright.png'
+];
+
+// Prepare des images d'avance pour n'avoir plus des petits trous
+const images = [];
+function preloadImages(sources, callback) {
+    let loadedImagesCount = 0;
+    for (let i = 0; i < sources.length; i++) {
+        images[i] = new Image();
+        images[i].src = sources[i];
+
+        images[i].onload = () => {
+            loadedImagesCount++;
+            if (loadedImagesCount === sources.length) {
+                callback();
+            }
+        };
+        images[i].onerror = () => {
+            console.error(`Failed to load image: ${sources[i]}`);
+        };
+    }
+}
+preloadImages(imageSources, () => {
+    console.log('All images preloaded');
+});
+
 
 
 // très facile de trouver le centre avec canvas...je me rappel de les difficultés pour faire le même avec snake_v1
