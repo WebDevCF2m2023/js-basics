@@ -5,6 +5,8 @@
 ### Définition :
 React est une bibliothèque JavaScript open-source développée par Facebook pour créer des interfaces utilisateur (UI). Elle est utilisée pour construire des applications web dynamiques et réactives, principalement en gérant la vue (V) dans le modèle MVC.
 
+
+
 ### Historique :
 Créée en 2013 par Jordan Walke, ingénieur chez Facebook, React a été conçu pour résoudre les problèmes de performances et de modularité des interfaces utilisateur complexes. Depuis, elle est devenue l'une des bibliothèques les plus populaires pour le développement front-end.
 
@@ -87,6 +89,10 @@ Un framework basé sur React qui permet le rendu côté serveur, l'optimisation 
 
 ### Gatsby :
 Un autre framework basé sur React, principalement utilisé pour créer des sites statiques ultra-rapides avec des fonctionnalités modernes telles que le préchargement des données et la génération d’images optimisée.
+
+### React Bricks : 
+
+un CMS construit avec React, une bonne solution pour ceux qui ont un peu plus de mal a coder.
 
 ### Create React App (CRA) :
 Un outil officiel pour initialiser un projet React avec une configuration de développement prête à l'emploi, sans avoir à se soucier des configurations complexes de Webpack, Babel, etc.
