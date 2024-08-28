@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Consoles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consoles de Jeu</h1>
+    <div class="button-container">
+        <button onclick="showEighthElement()">Afficher le 8ème élément</button>
+        <button onclick="removeFirstAndLast()">Enlever 1er et dernier élément</button>
+        <button onclick="showAllElements()">Afficher tous les éléments</button>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        const consoles = [
+            "PlayStation",
+            "Xbox",
+            "Nintendo Switch",
+            "Sega Genesis",
+            "Atari 2600",
+            "Super Nintendo",
+            "Game Boy",
+            "PlayStation 5",
+            "Xbox Series X",
+            "Nintendo 64",
+            "Sega Dreamcast",
+            "PlayStation 2"
+        ];
+
+        function showEighthElement() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = consoles[7];
+        }
+
+        function removeFirstAndLast() {
+            const outputDiv = document.getElementById('output');
+            const newConsoles = consoles.slice(1, -1);
+            outputDiv.textContent = newConsoles.join(', ');
+        }
+
+        function showAllElements() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            consoles.forEach((console, index) => {
+                setTimeout(() => {
+                    outputDiv.textContent += `${console}, `;
+                }, index * 1000);
+            });
+        }
+    </script>
+</body>
+</html>
