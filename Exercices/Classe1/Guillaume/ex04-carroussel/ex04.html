@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Death Stranding 2 - On the beach</title>
+  </head>
+  <body>
+
+    <h1 class="text-center text-5xl m-2">Death Stranding 2 - On the beach</h1>
+
+    <!-- Pause button -->
+    <div class="container">
+    <div class="flex justify-center">
+    <button id="pauseButton"  class="bg-blue-500 hover:bg-blue-400 text-white py-1 px-1 border-b-4 border-blue-700 hover:border-blue-500 rounded mb-2 text-center text-small" width="10%" onclick="togglePause()">Pause</button>
+    </div>
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 4</div>
+        <iframe width="100%" height="560" class="rounded-lg border-8 border-blue-500 border-opacity-50" src="https://www.youtube.com/embed/4NSjsZcojMM?si=rK7aANw2fdmVFkDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        
+        <div class="text">State of play 2024</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 4</div>
+        <img src="img2.jpg" class="rounded-lg border-8 border-blue-500 border-opacity-50" style="width: 100%" />
+        <div class="text">Sam Porter Bridges and Lou</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 4</div>
+        <img src="img3.jpg" class="rounded-lg border-8 border-blue-500 border-opacity-50" style="width: 100%" />
+        <div class="text">Higgs</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 4</div>
+        <img src="img1.webp"  class="rounded-lg border-8 border-blue-500 border-opacity-50" style="width: 100%" />
+        <div class="text">Fragile and Lou</div>
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+
+    <!-- The dots/circles -->
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    
+
+  </body>
+
+  <script>
+
+     // Next/previous controls
+     function plusSlides(n) {
+      showSlides((slideIndex == n));
+    }
+    
+    let slideIndex = 0;
+    let paused = false;
+    let slideInterval;
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+
+    function startSlides() {
+      slideInterval = setInterval(showSlides, 3000); 
+    }
+
+    function stopSlides() {
+      clearInterval(slideInterval);
+    }
+
+    function togglePause() {
+      if(paused) {
+        startSlides();
+        document.getElementById('pauseButton').innerHTML = 'Pause';
+      } else {
+        stopSlides();
+        document.getElementById('pauseButton').innerHTML = 'Play';
+      }
+      paused = !paused;
+    }
+
+    startSlides();
+  </script>
+</html>
