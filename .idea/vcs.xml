@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Exercices/Classe1/Erhan/ex16/Javascript-Snake-Game" vcs="Git" />
   </component>
 </project>
