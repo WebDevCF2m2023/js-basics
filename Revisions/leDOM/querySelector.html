@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello HTML</title>
+</head>
+<body>
+  <h1 class="maClasse">
+    Hello HTML
+  </h1>
+  <p id="1" class="maClasse">
+    Page test
+  </p>  
+  <p>
+    Suite de la page
+  </p>
+  <p>
+    encore un bout de texte
+  </p>
+  <script>
+    const element = document.querySelector('p');
+    const allElements = document.querySelectorAll('p');
+    const thirdElement = document.querySelector('p:nth-of-type(3)');
+    console.log(element);
+    console.log(allElements);
+    console.log(thirdElement);
+  </script>
+</body>
+</html>
