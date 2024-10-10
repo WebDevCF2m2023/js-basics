@@ -1,0 +1,35 @@
+@font-face {
+    font-family: snakeFont;
+    src: url("font/SnakeOutlineDemo-nRE5V.otf");
+}
+
+#backgroundSnake{
+    background-image: url("snake.jpg");
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+#btnPlay{
+    background-color: #dee586;
+    color: black;
+}
+
+#btnPlay:hover{
+    background-color: #D2DB57;
+}
+
+#modal{
+    display: none;
+    background-color: #D2DB57;
+}
+
+#titreSnake{
+    display: none;
+    font-size: 60px;
+    color: #82a20c;
+    font-family: snakeFont,sans-serif;
+}
+#board{
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
