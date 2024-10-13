@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Consoles de jeu</h1>
+    <div>
+      <button onclick="showEightElement()">Afficher le 8ème élément</button>
+      <button onclick="removeFirstAndLast()">
+        Enlever le premier et le dernier
+      </button>
+      <button onclick="showAllElements()">Tout montrer</button>
+    </div>
+    <div id="output"></div>
+    <script>
+      const consoles = [
+        "PlayStation",
+        "Xbox",
+        "Nintendo Switch",
+        "Sega Genesis",
+        "Atari 2600",
+        "Super Nintendo",
+        "Game Boy",
+        "PlayStation 5",
+        "Xbox Series X",
+        "Nintendo 64",
+        "Sega Dreamcast",
+        "PlayStation 2",
+      ];
+
+      function showEightElement() {
+        document.getElementById("output").textContent = consoles[7];
+      }
+
+      function removeFirstAndLast() {
+        const outputDiv = document.getElementById("output");
+        const NewConsoles = consoles.slice(1, -1);
+        outputDiv.textContent = NewConsoles.join(", ");
+      }
+
+      let i = 0;
+
+      function showAllElements() {
+        const outputDiv = document.getElementById("output");
+        setTimeout(() => {
+          outputDiv.textContent = consoles[i];
+          i++;
+          if (i < consoles.length) {
+            showAllElements();
+          }
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

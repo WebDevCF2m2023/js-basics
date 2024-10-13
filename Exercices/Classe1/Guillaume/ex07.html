@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h2>
+      7/ Créer un formulaire pour choisir un nom d'utilisateur et un mot de
+      passe, <br />
+      avant d'envoyer le formulaire vous devez vérifiez que le mot de passe
+      choisi fait plus de 10 caractères ( grace à JS ) : <br />
+      Vérifier également la présence de chiffres, de caractères spéciaux et de
+      majuscules dans le champ "password" du formulaire <br />
+      Afficher un message d'erreur si le mot de passe ne répond pas aux critères
+      Faire du layout
+    </h2>
+
+    <div
+      class="min-h-screen flex items-center justify-center w-full dark:bg-gray-950"
+    >
+      <div
+        class="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md"
+      >
+        <h1 class="text-2xl font-bold text-center mb-4 dark:text-gray-200">
+          Welcome Back!
+        </h1>
+        <form action="#">
+          <div class="mb-4">
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              class="shadow-sm rounded-md w-full px-3 py-2 mb-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Enter your name"
+              required
+            />
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Enter your password"
+              required
+            />
+
+            <p id="error" class="hidden text-white">Password must ...</p>
+          </div>
+          <button
+            id="buttonSubmit"
+            type="submit"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      let password = document.getElementById("password").value;
+      let button = document.getElementById("buttonSubmit");
+      let mdp = document.getElementById("error");
+
+      button.addEventListener("click", () => {
+        function validPassword(password) {
+          if (password.length < 10) {
+            mdp.textContent = "Trop Court";
+          } else if (/[A-Z]/.test(password) === false) {
+            mdp.textContent = "Il manque une Majuscule";
+          } else if (/\d/.test(password) === false) {
+            mdp.textContent = "Il manque un chiffre entre 0 et 9";
+          } else if (/[!@#$%^,&;*()_+]/.test(password) === false) {
+            mdp.textContent = "Il manque un symbole";
+          } else if (
+            password.length >= 10 &&
+            /[A-Z]/.test(password) &&
+            /\d/.test(password) &&
+            /[!@#$%^,&;*()_+]/.test(password)
+          ) {
+            alert("Bienvenue");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
