@@ -1,0 +1,25 @@
+<section class="material">
+    <p class="target">Haha, vous ne me changerez jamais !</p>
+    <p class="target">Moi non plus !</p>
+    <p class="target">Pouvez toujours courir !</p>
+    <p class="target">Tel est owned qui croyant owner !</p>
+    <p class="target">Moi, j'm'en fous…</p>
+</section>
+
+<script>
+ //document.querySelectorAll(".target").forEach(item => item.textContent = "owned");
+ document.querySelectorAll(".target")[2].innerHTML = "owned";
+</script>
+
+<section class="material2">
+    <p></p>Haha, vous ne me changerez jamais !</p>
+    <p>Moi non plus !</p>
+    <p>Pouvez toujours courir !</p>
+    <p>Tel est owned qui croyant owner !</p>
+    <p>Moi, j'm'en fous…</p>
+</section>
+
+<script>
+ //document.querySelectorAll(".target").forEach(item => item.textContent = "owned");
+ document.querySelector('section.material2 p:nth-child(3)').innerHTML = "owned";
+</script>
